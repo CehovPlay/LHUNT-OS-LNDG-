@@ -5,20 +5,20 @@
     "preview": "vite preview --host 0.0.0.0"
   },
   "dependencies": {
-    "@vitejs/plugin-react": "latest",
-    "vite": "latest",
-    "react": "latest",
-    "react-dom": "latest",
-    "gsap": "latest",
-    "lenis": "latest",
-    "@amcharts/amcharts5": "latest",
-    "@amcharts/amcharts5-geodata": "latest"
+    "@amcharts/amcharts5": "5.10.5",
+    "@amcharts/amcharts5-geodata": "5.1.0",
+    "@vitejs/plugin-react": "4.3.4",
+    "gsap": "3.12.5",
+    "lenis": "1.1.20",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "vite": "5.4.11"
   },
   "devDependencies": {},
   "private": true,
   "type": "module",
   "engines": {
-    "node": ">=20 <25",
-    "npm": ">=10"
-  }
+    "node": "22.x"
+  },
+  "packageManager": "npm@10.9.2"
 }

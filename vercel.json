@@ -1,7 +1,7 @@
 {
   "version": 2,
   "framework": "vite",
-  "installCommand": "npm install --no-audit --no-fund",
+  "installCommand": "npm install --legacy-peer-deps --no-audit --no-fund --no-package-lock",
   "buildCommand": "npm run build",
   "outputDirectory": "dist"
 }
