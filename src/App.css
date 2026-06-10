@@ -351,7 +351,7 @@ main {
   position: relative;
   overflow: hidden;
   padding: 150px 40px 0;
-  background: #030304;
+  background: var(--ink-900);
   color: #fff;
 }
 
@@ -811,7 +811,7 @@ main {
 .site-footer {
   position: relative;
   overflow: hidden;
-  background: #030304;
+  background: var(--ink-900);
   color: #fff;
 }
 
@@ -1242,7 +1242,7 @@ body {
 }
 
 .problem-section {
-  padding: 160px var(--page-gutter) 0;
+  padding: var(--space-section) var(--page-gutter) 0;
 }
 
 .problem-inner {
@@ -1361,7 +1361,7 @@ body {
 
 .products-shell {
   width: min(var(--content-width), calc(100vw - 48px));
-  padding: 132px 0 76px;
+  padding: var(--space-section) 0 76px;
 }
 
 .products-heading {
@@ -3048,9 +3048,9 @@ body {
 .who-section {
   position: relative;
   overflow: hidden;
-  background: #050507;
+  background: var(--ink-900);
   color: #fff;
-  padding: 132px var(--page-gutter);
+  padding: var(--space-section) var(--page-gutter);
 }
 
 .trust-inner,
@@ -3228,7 +3228,7 @@ body {
     radial-gradient(circle at 50% 0%, rgba(111,81,151,0.32), transparent 35%),
     linear-gradient(180deg, #050507 0%, #0f0818 100%);
   color: #fff;
-  padding: 150px var(--page-gutter);
+  padding: var(--space-section) var(--page-gutter);
 }
 
 .final-cta-inner {
