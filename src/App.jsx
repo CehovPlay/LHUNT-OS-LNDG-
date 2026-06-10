@@ -45,19 +45,6 @@ function getSequenceRanges() {
 
 
 
-function LoadingScreen({ progress, isExiting }) {
-  return (
-    <div className={`site-loader ${isExiting ? "is-exiting" : ""}`}>
-      <div className="loader-line-wrap">
-        <div className="loader-line">
-          <div className="loader-progress" style={{ width: `${progress}%` }} />
-          <div className="loader-burst" style={{ left: `${progress}%` }} />
-        </div>
-      </div>
-    </div>
-  );
-}
-
 function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -1321,32 +1308,6 @@ function Footer() {
 
 
 export default function App() {
-  const [loaderProgress, setLoaderProgress] = useState(0);
-  const [isLoaderVisible, setIsLoaderVisible] = useState(true);
-  const [isLoaderExiting, setIsLoaderExiting] = useState(false);
-
-  useEffect(() => {
-    let progressValue = 0;
-    const progressInterval = window.setInterval(() => {
-      progressValue = Math.min(progressValue + Math.random() * 12 + 5, 92);
-      setLoaderProgress(progressValue);
-    }, 120);
-
-    const completeLoader = () => {
-      window.clearInterval(progressInterval);
-      setLoaderProgress(100);
-      window.setTimeout(() => setIsLoaderExiting(true), 280);
-      window.setTimeout(() => setIsLoaderVisible(false), 760);
-    };
-
-    const minTimer = window.setTimeout(completeLoader, 1450);
-
-    return () => {
-      window.clearInterval(progressInterval);
-      window.clearTimeout(minTimer);
-    };
-  }, []);
-
   useEffect(() => {
     const ctx = gsap.context(() => {
       const textItems = gsap.utils.toArray(
@@ -1390,7 +1351,6 @@ export default function App() {
 
   return (
     <>
-      {isLoaderVisible && <LoadingScreen progress={loaderProgress} isExiting={isLoaderExiting} />}
       <Header />
       <main>
         <HeroSequence />
