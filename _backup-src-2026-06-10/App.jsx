@@ -857,7 +857,7 @@ function ProductsSection() {
     <section id="products" ref={sectionRef} className="products-section">
       <div className="products-shell">
         <div className="products-heading">
-          <span className="section-index">05 / Products</span>
+          <span className="section-index">03 / Products</span>
           <div className="products-heading-copy">
             <h2>Our ecosystem products</h2>
             <p>
@@ -1221,7 +1221,7 @@ function GeometryPhysicsSection() {
   return (
     <section id="motion" ref={sectionRef} className="geometry-physics-section">
       <div className="geometry-copy">
-        <span className="section-index">06 / Motion system</span>
+        <span className="section-index">05 / Motion system</span>
         <h2>Freight operations should feel responsive, alive, and connected.</h2>
         <p>
           Floating geometry reacts softly to scroll, creating a tactile motion moment after the dispatch story.
@@ -1290,7 +1290,7 @@ function Footer() {
 
       <div className="footer-inner">
         <div>
-          <span className="section-index">08 / Contact</span>
+          <span className="section-index">04 / Contact</span>
           <h2>Move freight with one connected operating layer.</h2>
         </div>
 
@@ -1355,10 +1355,10 @@ export default function App() {
       <main>
         <HeroSequence />
         <ProblemSection />
-        <SectionLetterBridge label="TRUST" eyebrow="03 / Proof" />
+        <SectionLetterBridge label="TRUST" eyebrow="02 / Proof" />
         <TrustMetricsSection />
         <WhoForSection />
-        <SectionLetterBridge label="TOOLS" eyebrow="05 / Ecosystem" />
+        <SectionLetterBridge label="TOOLS" eyebrow="04 / Ecosystem" />
         <ProductsSection />
         <VideoStatementSection />
         <GeometryPhysicsSection />
