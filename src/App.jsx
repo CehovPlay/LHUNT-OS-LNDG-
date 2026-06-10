@@ -236,8 +236,10 @@ function HeroSequence() {
       const y = (canvasHeight - img.height * scale) / 2;
 
       context.clearRect(0, 0, canvasWidth, canvasHeight);
+      // "low" bilinear resampling: on a full-viewport photo the quality
+      // difference is imperceptible, but it's far cheaper per scrub frame.
       context.imageSmoothingEnabled = true;
-      context.imageSmoothingQuality = "high";
+      context.imageSmoothingQuality = "low";
       context.drawImage(img, x, y, img.width * scale, img.height * scale);
     };
 
@@ -1163,21 +1165,29 @@ function GeometryPhysicsSection() {
     if (!section) return undefined;
 
     const ctx = gsap.context(() => {
+      // Cache layout reads — recomputed on resize, not every frame (avoids reflow thrash).
+      let viewportWidth = window.innerWidth;
+      let sectionHeight = section.offsetHeight || 1120;
+
+      const measure = () => {
+        viewportWidth = window.innerWidth;
+        sectionHeight = section.offsetHeight || 1120;
+      };
+
       const updatePositions = (progress = 0) => {
-        const width = window.innerWidth;
-        const height = section.offsetHeight || 1120;
+        const now = performance.now();
 
         shapes.forEach((shape, index) => {
           const element = shapeRefs.current[index];
           if (!element) return;
 
           const phase = index * 0.72;
-          const baseX = width * shape.x;
-          const baseY = height * shape.y;
+          const baseX = viewportWidth * shape.x;
+          const baseY = sectionHeight * shape.y;
           const scrollX = Math.sin(progress * Math.PI * 2 + phase) * shape.drift;
           const scrollY = Math.cos(progress * Math.PI * 1.7 + phase) * (shape.drift * 0.58);
-          const floatX = Math.sin(performance.now() * 0.00055 + phase) * 16;
-          const floatY = Math.cos(performance.now() * 0.00048 + phase) * 12;
+          const floatX = Math.sin(now * 0.00055 + phase) * 16;
+          const floatY = Math.cos(now * 0.00048 + phase) * 12;
           const rotate = shape.rotate + Math.sin(progress * Math.PI * 1.8 + phase) * 7;
 
           element.style.transform = `translate3d(${baseX + scrollX + floatX}px, ${baseY + scrollY + floatY}px, 0) translate(-50%, -50%) rotate(${rotate}deg)`;
@@ -1186,13 +1196,34 @@ function GeometryPhysicsSection() {
 
       let latestProgress = 0;
       let animationFrame = 0;
+      let running = false;
 
       const tick = () => {
         updatePositions(latestProgress);
         animationFrame = window.requestAnimationFrame(tick);
       };
 
-      tick();
+      const start = () => {
+        if (running) return;
+        running = true;
+        tick();
+      };
+
+      const stop = () => {
+        running = false;
+        window.cancelAnimationFrame(animationFrame);
+      };
+
+      // Only run the animation loop while the section is on (or near) screen.
+      // Off-screen it would otherwise burn the main thread and jank the whole page.
+      const io = new IntersectionObserver(
+        (entries) => {
+          if (entries[0].isIntersecting) start();
+          else stop();
+        },
+        { rootMargin: "200px 0px" }
+      );
+      io.observe(section);
 
       gsap.to(section, {
         "--geometry-scroll": 1,
@@ -1208,10 +1239,16 @@ function GeometryPhysicsSection() {
         },
       });
 
-      window.addEventListener("resize", () => updatePositions(latestProgress));
+      const onResize = () => {
+        measure();
+        updatePositions(latestProgress);
+      };
+      window.addEventListener("resize", onResize);
 
       return () => {
-        window.cancelAnimationFrame(animationFrame);
+        stop();
+        io.disconnect();
+        window.removeEventListener("resize", onResize);
       };
     }, section);
 

@@ -1936,7 +1936,7 @@ body {
   z-index: 2;
   display: grid;
   place-items: center;
-  will-change: transform, opacity, filter;
+  will-change: transform;
   transform-origin: center;
   pointer-events: auto;
   user-select: none;
@@ -1954,7 +1954,8 @@ body {
     inset 30px 34px 70px rgba(255, 255, 255, 0.38),
     inset -38px -48px 90px rgba(17, 24, 39, 0.22),
     0 34px 90px rgba(124, 58, 237, 0.12);
-  backdrop-filter: blur(8px);
+  /* backdrop-filter removed: re-sampling blur on 6 moving shapes every frame
+     was the main scroll-jank source; gradients + box-shadow keep the look. */
 }
 
 .shape-blob {
