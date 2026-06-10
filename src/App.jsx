@@ -603,69 +603,6 @@ const AUDIENCES = [
   },
 ];
 
-function SectionLetterBridge({ label, eyebrow }) {
-  const bridgeRef = useRef(null);
-
-  useEffect(() => {
-    const bridge = bridgeRef.current;
-    if (!bridge) return undefined;
-
-    const letters = gsap.utils.toArray(".bridge-letter", bridge);
-
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        letters,
-        {
-          yPercent: 110,
-          rotateX: 48,
-          opacity: 0,
-          filter: "blur(14px)",
-        },
-        {
-          yPercent: 0,
-          rotateX: 0,
-          opacity: 1,
-          filter: "blur(0px)",
-          stagger: 0.035,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: bridge,
-            start: "top 80%",
-            end: "bottom 25%",
-            scrub: 1,
-          },
-        }
-      );
-
-      gsap.to(bridge, {
-        "--bridge-progress": 1,
-        ease: "none",
-        scrollTrigger: {
-          trigger: bridge,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: true,
-        },
-      });
-    }, bridge);
-
-    return () => ctx.revert();
-  }, []);
-
-  return (
-    <section ref={bridgeRef} className="letter-bridge-section" aria-label={`${label} transition`}>
-      <span className="section-index">{eyebrow}</span>
-      <div className="letter-bridge-word" aria-label={label}>
-        {label.split("").map((letter, index) => (
-          <span key={`${letter}-${index}`} className="bridge-letter">
-            {letter}
-          </span>
-        ))}
-      </div>
-    </section>
-  );
-}
-
 function TrustMetricsSection() {
   return (
     <section id="trust" className="trust-metrics-section">
@@ -1292,10 +1229,8 @@ export default function App() {
       <main>
         <HeroSequence />
         <ProblemSection />
-        <SectionLetterBridge label="TRUST" eyebrow="03 / Proof" />
         <TrustMetricsSection />
         <WhoForSection />
-        <SectionLetterBridge label="TOOLS" eyebrow="05 / Ecosystem" />
         <ProductsSection />
         <VideoStatementSection />
         <GeometryPhysicsSection />
