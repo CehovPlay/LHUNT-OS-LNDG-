@@ -3653,37 +3653,44 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1px;
-  padding: 12px;
+  padding: 10px;
   background: rgba(255,255,255,0.055);
 }
 
-.mega-resource-link {
-  display: grid;
-  align-content: start;
-  gap: 7px;
-  min-height: 96px;
-  padding: 14px;
-  border-radius: 16px;
-  background: rgba(11,11,14,0.88);
-  text-decoration: none;
+/* Mirror the product-link card styling so Resources matches Products.
+   The !important + .dark-shadow-nav scope is required to beat the base
+   ".site-nav a" rule (pill radius + inline-flex) that otherwise hijacks
+   these anchors and renders them as ovals. */
+.dark-shadow-nav .mega-resource-link {
+  height: auto !important;
+  display: grid !important;
+  align-content: start !important;
+  gap: 7px !important;
+  min-height: 104px;
+  padding: 14px !important;
+  border-radius: 16px !important;
+  background: rgba(11,11,14,0.88) !important;
+  color: inherit !important;
+  text-decoration: none !important;
   transition: transform 180ms ease, background 180ms ease;
 }
 
-.mega-resource-link:hover {
+.dark-shadow-nav .mega-resource-link:hover {
   transform: translateY(-2px);
-  background: rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.08) !important;
 }
 
-.mega-resource-link b {
+.dark-shadow-nav .mega-resource-link b {
   color: #fff;
-  font-size: var(--text-base);
+  font-size: var(--text-md);
   font-weight: var(--weight-bold);
-  letter-spacing: var(--tracking-tight);
+  line-height: 1;
+  letter-spacing: -0.032em;
 }
 
-.mega-resource-link p {
+.dark-shadow-nav .mega-resource-link p {
   margin: 0;
-  color: rgba(255,255,255,0.56);
+  color: rgba(255,255,255,0.58);
   font-size: var(--text-xs);
   font-weight: var(--weight-regular);
   line-height: 1.4;
