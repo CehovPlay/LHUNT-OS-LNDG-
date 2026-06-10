@@ -2,10 +2,6 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
-import * as am5 from "@amcharts/amcharts5";
-import * as am5map from "@amcharts/amcharts5/map";
-import am5geodata_worldLow from "@amcharts/amcharts5-geodata/worldLow";
-import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -512,105 +508,9 @@ function GlobeSection() {
           Loadhunt connects carriers, brokers, dispatchers, drivers, and financial operations into one live operational layer.
         </p>
       </div>
-
-      <div className="globe-stage" aria-hidden="true">
-        <div className="globe-fade">
-          <RotatingAmGlobe />
-        </div>
-      </div>
     </div>
   );
 }
-
-function RotatingAmGlobe() {
-  const globeRef = useRef(null);
-
-  useEffect(() => {
-    if (!globeRef.current) return;
-
-    const root = am5.Root.new(globeRef.current);
-    root.setThemes([am5themes_Animated.new(root)]);
-
-    const chart = root.container.children.push(
-      am5map.MapChart.new(root, {
-        panX: "rotateX",
-        panY: "rotateY",
-        wheelY: "none",
-        pinchZoom: false,
-        projection: am5map.geoOrthographic(),
-        rotationX: -102,
-        rotationY: -24,
-        homeZoomLevel: 1,
-        paddingTop: 0,
-        paddingRight: 0,
-        paddingBottom: 0,
-        paddingLeft: 0,
-      })
-    );
-
-    const backgroundSeries = chart.series.push(
-      am5map.MapPolygonSeries.new(root, {})
-    );
-
-    backgroundSeries.mapPolygons.template.setAll({
-      fill: am5.color(0x020204),
-      fillOpacity: 0.72,
-      strokeOpacity: 0,
-    });
-
-    backgroundSeries.data.push({
-      geometry: {
-        type: "Sphere",
-      },
-    });
-
-    const polygonSeries = chart.series.push(
-      am5map.MapPolygonSeries.new(root, {
-        geoJSON: am5geodata_worldLow,
-        exclude: ["AQ"],
-      })
-    );
-
-    polygonSeries.mapPolygons.template.setAll({
-      fill: am5.color(0xffffff),
-      fillOpacity: 0.92,
-      strokeOpacity: 0,
-      interactive: false,
-    });
-
-    const shadowSeries = chart.series.push(
-      am5map.MapPolygonSeries.new(root, {
-        geoJSON: am5geodata_worldLow,
-        exclude: ["AQ"],
-      })
-    );
-
-    shadowSeries.mapPolygons.template.setAll({
-      fill: am5.color(0xffffff),
-      fillOpacity: 0.06,
-      strokeOpacity: 0,
-      interactive: false,
-    });
-
-    chart.appear(900, 120);
-
-    chart.animate({
-      key: "rotationX",
-      from: -102,
-      to: 258,
-      duration: 36000,
-      loops: Infinity,
-      easing: am5.ease.linear,
-    });
-
-    return () => {
-      root.dispose();
-    };
-  }, []);
-
-  return <div ref={globeRef} className="amchart-globe" />;
-}
-
 
 const PRODUCTS = [
   {
