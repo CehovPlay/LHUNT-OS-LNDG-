@@ -46,19 +46,9 @@ function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    let lastY = window.scrollY;
-
-    const onScroll = () => {
-      const currentY = window.scrollY;
-      const isScrollingDown = currentY > lastY && currentY > 70;
-
-      setScrolled(isScrollingDown);
-      lastY = currentY;
-    };
-
+    const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
@@ -71,82 +61,69 @@ function Header() {
     { name: "$LHUNT", description: "The token aligning the network" },
   ];
 
-  // TODO: placeholder content — replace with real Solutions items
-  const solutionLinks = [
-    { name: "For Carriers", description: "Run your fleet end to end" },
-    { name: "For Brokers", description: "Post, match, and move loads" },
-    { name: "For Dispatchers", description: "Book faster across boards" },
-    { name: "For Owner-Operators", description: "One app for the whole job" },
-  ];
+  const closeMobile = () => setMobileOpen(false);
 
   return (
-    <header className={`site-header dark-shadow-nav ${scrolled ? "is-scrolled" : ""}`}>
-      <div className="navbar-shell">
-        <a className="brand-mark" href="#top" aria-label="Loadhunt home">
-          <img src="/loadhunt-nav-logo.svg" alt="Loadhunt" />
+    <header className={`navbar ${scrolled ? "is-scrolled" : ""}`}>
+      <div className="navbar-inner">
+        <a className="navbar-brand" href="#top" aria-label="huntOS home">
+          <span className="navbar-logo" aria-hidden="true">
+            <svg viewBox="0 0 28 28">
+              <rect width="28" height="28" rx="7" fill="#14171a" />
+              <path
+                d="M14 4.4 L15.7 12.3 L23.6 14 L15.7 15.7 L14 23.6 L12.3 15.7 L4.4 14 L12.3 12.3 Z"
+                fill="#fff"
+              />
+              <circle cx="14" cy="14" r="1.7" fill="#14171a" />
+              <circle cx="20.4" cy="7.6" r="0.9" fill="#fff" />
+              <circle cx="20.4" cy="20.4" r="0.9" fill="#fff" />
+              <circle cx="7.6" cy="20.4" r="0.9" fill="#fff" />
+              <circle cx="7.6" cy="7.6" r="0.9" fill="#fff" />
+            </svg>
+          </span>
+          <b>huntOS</b>
         </a>
 
-        <nav className="site-nav" aria-label="Main navigation">
-          <div className="nav-dropdown-wrap">
-            <a href="#products" className="nav-dropdown-trigger">
+        <nav className="navbar-menu" aria-label="Main navigation">
+          <a className="navbar-link" href="#top">Home</a>
+
+          <div className="navbar-dd">
+            <a className="navbar-link navbar-dd-trigger" href="#products">
               Products
-              <span>⌄</span>
+              <svg className="navbar-caret" viewBox="0 0 12 12" aria-hidden="true">
+                <path
+                  d="M3 4.5 L6 7.5 L9 4.5"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.4"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
             </a>
 
-            <div className="nav-mega-panel nav-mega-products">
-              <div className="mega-feature-card">
-                <span>Products</span>
-                <h3>Everything to move freight, in one place.</h3>
-                <p>From the load marketplace to TMS, tracking, accounting, and the $LHUNT network.</p>
-              </div>
-
-              <div className="mega-grid">
+            <div className="navbar-panel">
+              <div className="navbar-panel-grid">
                 {productLinks.map((product) => (
-                  <a href="#products" key={product.name} className="mega-product-link">
-                    <b>{product.name}</b>
-                    {product.status && <em>{product.status}</em>}
-                    <p>{product.description}</p>
+                  <a className="navbar-panel-link" href="#products" key={product.name}>
+                    <span className="navbar-panel-name">
+                      {product.name}
+                      {product.status && <em>{product.status}</em>}
+                    </span>
+                    <span className="navbar-panel-desc">{product.description}</span>
                   </a>
                 ))}
               </div>
             </div>
           </div>
 
-          <div className="nav-dropdown-wrap">
-            <a href="#products" className="nav-dropdown-trigger">
-              Solutions
-              <span>⌄</span>
-            </a>
-
-            <div className="nav-mega-panel nav-mega-products">
-              <div className="mega-feature-card">
-                <span>Solutions</span>
-                <h3>Built for everyone moving freight.</h3>
-                <p>One operating layer for carriers, brokers, dispatchers, and owner-operators.</p>
-              </div>
-
-              <div className="mega-grid">
-                {solutionLinks.map((solution) => (
-                  <a href="#products" key={solution.name} className="mega-product-link">
-                    <b>{solution.name}</b>
-                    {solution.status && <em>{solution.status}</em>}
-                    <p>{solution.description}</p>
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <a href="#articles">Articles</a>
-          <a href="#contact">Company</a>
+          <a className="navbar-link" href="#solutions">Solutions</a>
+          <a className="navbar-link" href="#articles">Articles</a>
+          <a className="navbar-link" href="#contact">Company</a>
         </nav>
 
-        <div className="nav-actions">
-          <a className="header-cta" href="#contact">Join waitlist</a>
-        </div>
-
         <button
-          className={`mobile-menu-button ${mobileOpen ? "is-open" : ""}`}
+          className={`navbar-burger ${mobileOpen ? "is-open" : ""}`}
           type="button"
           aria-label="Toggle navigation"
           onClick={() => setMobileOpen((value) => !value)}
@@ -156,12 +133,12 @@ function Header() {
         </button>
       </div>
 
-      <div className={`mobile-nav-panel ${mobileOpen ? "is-open" : ""}`}>
-        <a href="#products" onClick={() => setMobileOpen(false)}>Products</a>
-        <a href="#products" onClick={() => setMobileOpen(false)}>Solutions</a>
-        <a href="#articles" onClick={() => setMobileOpen(false)}>Articles</a>
-        <a href="#contact" onClick={() => setMobileOpen(false)}>Company</a>
-        <a href="#contact" onClick={() => setMobileOpen(false)}>Join waitlist</a>
+      <div className={`navbar-mobile ${mobileOpen ? "is-open" : ""}`}>
+        <a href="#top" onClick={closeMobile}>Home</a>
+        <a href="#products" onClick={closeMobile}>Products</a>
+        <a href="#solutions" onClick={closeMobile}>Solutions</a>
+        <a href="#articles" onClick={closeMobile}>Articles</a>
+        <a href="#contact" onClick={closeMobile}>Company</a>
       </div>
     </header>
   );
