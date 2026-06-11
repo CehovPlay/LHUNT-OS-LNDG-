@@ -416,56 +416,59 @@ function GlobeSection() {
 
 const PRODUCTS = [
   {
-    name: "loadhunter",
-    eyebrow: "AI Browser Extension",
-    title: "Find and evaluate loads faster on major loadboards",
+    name: "Marketplace",
+    eyebrow: "Load marketplace",
     description:
-      "LoadHunter Extension enhances the load booking process on DAT, Truckstop, and other major loadboards with automation, broker context, and faster decision making.",
+      "Every load source — DAT, Truckstop, Direct Freight, broker-direct — in one normalized feed, scored by AI for your lanes.",
+    link: "Explore Marketplace",
+    href: "#waitlist",
     mockup: "dashboard",
   },
   {
-    name: "huntTMS",
-    eyebrow: "Transport Management",
-    title: "A connected operating system for dispatch teams",
+    name: "TMS for Carriers",
+    eyebrow: "Fleet operations",
     description:
-      "Comprehensive transport management system providing a single platform to manage loads, dispatchers, drivers, documents, and operational workflows.",
+      "Drivers, trucks, trailers, assignments. Your fleet operations inside the same workspace.",
+    link: "Explore TMS",
+    href: "#waitlist",
     mockup: "calendar",
   },
   {
-    name: "huntPAY",
-    eyebrow: "Payments & Finance",
-    title: "Payments, invoices, expenses, and tolls in one workflow",
+    name: "Live Tracking",
+    eyebrow: "Visibility",
     description:
-      "Financial operations connected to the same trucking workflow: invoices, driver expenses, tolls, payment status, and reporting.",
-    badge: "Coming soon",
-    mockup: "payments",
-  },
-  {
-    name: "huntDRIVE",
-    eyebrow: "Driver Workflow",
-    title: "Driver context, route visibility, and HOS-aware operations",
-    description:
-      "Driver workflow, route visibility, hours-of-service context, documents, communication, and operational tools in one place.",
-    badge: "Coming soon",
-    mockup: "drive",
-  },
-  {
-    name: "fleetHUNT",
-    eyebrow: "Fleet Intelligence",
-    title: "Optimize routes, brokers, and dispatch decisions",
-    description:
-      "Fleet optimization, route planning, broker evaluation, and AI-assisted dispatch decisions for faster and cleaner operations.",
-    badge: "Coming soon",
+      "Fleet visibility powered by Samsara, Motive, and other ELD providers. See every truck, every shipment, every HOS clock.",
+    link: "Explore Tracking",
+    href: "#waitlist",
     mockup: "map",
   },
   {
-    name: "huntONE",
-    eyebrow: "Unified Search",
-    title: "One search layer for freight opportunities and workflows",
+    name: "Accounting",
+    eyebrow: "Money flow",
     description:
-      "Unified search and operational intelligence layer for freight opportunities, internal workflows, and team-wide visibility.",
+      "Generate invoices from completed loads. Track broker payments. Connect factoring partners. Money flow where load flow lives.",
+    link: "Explore Accounting",
+    href: "#waitlist",
+    mockup: "payments",
+  },
+  {
+    name: "TMS for Brokers",
+    eyebrow: "For brokers",
+    description:
+      "Direct posting to a verified carrier network. Tracking visibility. Faster booking.",
     badge: "Coming soon",
+    link: "Join broker waitlist",
+    href: "#waitlist",
     mockup: "search",
+  },
+  {
+    name: "$LHUNT",
+    eyebrow: "Network token",
+    description:
+      "The token aligning carriers, brokers, and the platform. Part of how Loadhunt scales an open freight economy.",
+    link: "Learn more",
+    href: "#waitlist",
+    mockup: "drive",
   },
 ];
 
@@ -597,11 +600,11 @@ function ProductsSection() {
     <section id="products" ref={sectionRef} className="products-section">
       <div className="products-shell">
         <div className="products-heading">
-          <span className="section-index">05 / Products</span>
+          <span className="section-index">Built modular</span>
           <div className="products-heading-copy">
-            <h2>Our ecosystem products</h2>
+            <h2>Built modular. Activate what you need.</h2>
             <p>
-              Everything you need to find, evaluate, book, manage, and pay for loads — faster, smarter, and in one place.
+              Each module works standalone or together. Start with what's painful. Add what's next.
             </p>
           </div>
         </div>
@@ -658,16 +661,16 @@ function ProductSlide({ product, index, total }) {
         <div>
           <span className="product-eyebrow">
             <i /> {product.eyebrow}
+            {product.badge && <em className="product-badge">{product.badge}</em>}
           </span>
-          <h3>{product.title}</h3>
+          <h3>{product.name}</h3>
           <p>{product.description}</p>
         </div>
 
         <div className="product-slide-footer">
-          <span className="product-brand-pill">
-            <i>✦</i>
-            {product.name}
-          </span>
+          <a className="product-link" href={product.href}>
+            {product.link} <span aria-hidden="true">→</span>
+          </a>
 
           <div className="product-progress">
             <strong>{String(index + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}</strong>
