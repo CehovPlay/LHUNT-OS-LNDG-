@@ -1566,6 +1566,7 @@ body {
 
 .video-statement-content h2 {
   max-width: 1180px;
+  font-size: clamp(44px, 6vw, 96px);
 }
 
 .footer-inner {
@@ -1800,7 +1801,7 @@ body {
 .geometry-copy {
   position: relative;
   z-index: 4;
-  width: min(var(--content-width), calc(100vw - 48px));
+  width: min(1180px, calc(100vw - 48px));
   margin: 0 auto;
   padding-top: 118px;
   pointer-events: none;
@@ -2656,19 +2657,19 @@ body {
 
 .trust-card strong {
   color: #fff;
-  font-size: clamp(56px, 6vw, 112px);
+  font-size: clamp(40px, 4.4vw, 60px);
   font-weight: var(--weight-semibold);
   line-height: var(--leading-none);
-  letter-spacing: var(--tracking-display);
+  letter-spacing: var(--tracking-tight);
 }
 
 .trust-card span {
   display: block;
-  margin-top: 18px;
+  margin-top: 14px;
   color: rgba(255,255,255,0.82);
-  font-size: var(--text-xl);
-  font-weight: var(--weight-bold);
-  letter-spacing: var(--tracking-display);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-tight);
 }
 
 .trust-card p {
@@ -2691,12 +2692,12 @@ body {
 }
 
 .audience-card {
-  min-height: 520px;
+  min-height: 200px;
   display: flex;
   flex-direction: column;
   border: 1px solid rgba(255,255,255,0.12);
   border-radius: var(--radius-lg);
-  padding: 34px;
+  padding: 32px;
   background:
     linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)),
     rgba(255,255,255,0.03);
@@ -2717,12 +2718,12 @@ body {
 }
 
 .audience-card h3 {
-  margin: auto 0 24px;
+  margin: 0 0 16px;
   color: #fff;
-  font-size: var(--display-lg);
-  line-height: var(--leading-none);
-  letter-spacing: var(--tracking-display);
-  font-weight: var(--weight-medium);
+  font-size: clamp(22px, 2vw, 28px);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  font-weight: var(--weight-semibold);
 }
 
 .audience-card p {
@@ -4308,4 +4309,15 @@ select.field-input {
   .footer-bottom {
     justify-content: flex-start;
   }
+}
+
+/* ---- Carousel mockup: symmetric padding (height driven by the mockup) ---- */
+.product-slide { min-height: auto; }
+.product-slide-visual { min-height: auto; }
+.product-mockup-image { max-height: none; }
+
+/* §5 title on one line */
+.story-inner-stack .story-title {
+  white-space: nowrap;
+  max-width: none;
 }

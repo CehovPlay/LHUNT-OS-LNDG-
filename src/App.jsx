@@ -685,16 +685,10 @@ function WhoForSection() {
         </div>
 
         <div className="audience-grid">
-          {AUDIENCES.map((audience, index) => (
+          {AUDIENCES.map((audience) => (
             <article key={audience.title} className="audience-card">
-              <span>{String(index + 1).padStart(2, "0")}</span>
               <h3>{audience.title}</h3>
               <p>{audience.body}</p>
-              <ul>
-                {audience.points.map((point) => (
-                  <li key={point}>{point}</li>
-                ))}
-              </ul>
             </article>
           ))}
         </div>
@@ -1117,7 +1111,6 @@ const INTEGRATION_GROUPS = [
       { name: "Samsara", src: "/partners/samsara.svg" },
       { name: "Motive", src: "/partners/motive.svg" },
       { name: "Geotab", src: "/partners/geotab.svg" },
-      { name: "Omnitracs", src: "/partners/omnitracs.svg" },
     ],
   },
   {
