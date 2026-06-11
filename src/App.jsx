@@ -294,6 +294,34 @@ function HeroSequence() {
         0
       );
 
+      // Hero content reveals on scroll (same effect as the original word
+      // reveal): title words, subtitle, then CTAs stagger up out of blur.
+      const revealItems = textRef.current
+        ? textRef.current.querySelectorAll(
+            ".hero-title span, .hero-subtitle, .hero-cta-row"
+          )
+        : [];
+
+      gsap.set(revealItems, {
+        yPercent: 120,
+        opacity: 0,
+        filter: "blur(10px)",
+      });
+
+      const revealStart = ranges[1].start / TOTAL_FRAMES;
+
+      timeline.to(
+        revealItems,
+        {
+          yPercent: 0,
+          opacity: 1,
+          filter: "blur(0px)",
+          stagger: 0.035,
+          ease: "power3.out",
+          duration: 0.16,
+        },
+        revealStart + 0.015
+      );
     }, section);
 
     // Start anchored at the top so pinned triggers measure from a stable
@@ -353,8 +381,14 @@ function HeroSequence() {
       </div>
 
       <div ref={textRef} className="hero-content">
-        <h1 className="hero-title">
-          The unified operating system for modern carrier operations.
+        <h1 className="hero-title" aria-label="The unified operating system for modern carrier operations.">
+          {"The unified operating system for modern carrier operations."
+            .split(" ")
+            .map((word, index) => (
+              <span key={`${word}-${index}`} aria-hidden="true">
+                {word}
+              </span>
+            ))}
         </h1>
         <p className="hero-subtitle">
           Loadhunt brings every part of running a trucking business into one

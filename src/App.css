@@ -3572,12 +3572,20 @@ body {
 
 .hero-title {
   margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 0.26em;
   font-size: clamp(38px, 5.4vw, 72px);
   line-height: 1.06;
   font-weight: var(--fw-semibold);
   letter-spacing: -0.025em;
-  text-wrap: balance;
   color: #fff;
+}
+
+.hero-title span {
+  display: inline-block;
+  will-change: transform, opacity, filter;
 }
 
 .hero-subtitle {
