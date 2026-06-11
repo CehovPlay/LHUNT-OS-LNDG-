@@ -274,7 +274,7 @@ main {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 75% 35%, rgba(124, 58, 237, 0.24), transparent 35%),
+    radial-gradient(circle at 75% 35%, rgba(29, 78, 216, 0.24), transparent 35%),
     linear-gradient(90deg, rgba(0, 0, 0, 0.72), transparent 55%);
 }
 
@@ -660,7 +660,7 @@ main {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at var(--tilt-glow-x) var(--tilt-glow-y), rgba(139, 92, 246, 0.09), transparent 34%);
+  background: radial-gradient(circle at var(--tilt-glow-x) var(--tilt-glow-y), rgba(29, 78, 216, 0.09), transparent 34%);
   pointer-events: none;
   opacity: 0;
   transition: opacity 220ms ease;
@@ -671,7 +671,7 @@ main {
 }
 
 .product-slide:hover {
-  border-color: rgba(139, 92, 246, 0.18);
+  border-color: rgba(29, 78, 216, 0.18);
 }
 
 .product-slide-visual {
@@ -709,7 +709,7 @@ main {
   margin-bottom: 48px;
   padding: 12px 18px;
   border-radius: var(--radius-pill);
-  background: rgba(139, 92, 246, 0.06);
+  background: rgba(29, 78, 216, 0.06);
   color: rgba(15, 23, 42, 0.7);
   font-size: var(--text-base);
   font-weight: var(--weight-semibold);
@@ -723,7 +723,7 @@ main {
   height: 18px;
   border-radius: var(--radius-pill);
   background: var(--accent-soft);
-  box-shadow: 0 0 0 6px rgba(196, 181, 253, 0.18);
+  box-shadow: 0 0 0 6px rgba(147, 197, 253, 0.18);
 }
 
 .product-slide-content h3 {
@@ -1190,10 +1190,10 @@ main {
   --white:   #fff;
 
   /* Accent — single brand accent (violet) */
-  --accent:        #8b5cf6;
-  --accent-strong: #7c3aed;
-  --accent-soft:   #c4b5fd;
-  --accent-tint:   #ede9fe;
+  --accent:        #1d4ed8;
+  --accent-strong: #1e40af;
+  --accent-soft:   #93c5fd;
+  --accent-tint:   #dbeafe;
 
   /* Muted text */
   --body-muted-dark: rgba(255,255,255,0.58);
@@ -1270,18 +1270,18 @@ main {
   --gray-950: #0f0f0f;
 
   /* ---- Brand / primary (purple) ---- */
-  --brand-25:  #fcfaff;
-  --brand-50:  #f9f5ff;
-  --brand-100: #f4ebff;
-  --brand-200: #e9d7fe;
-  --brand-300: #d6bbfb;
-  --brand-400: #b692f6;
-  --brand-500: #9e77ed;
-  --brand-600: #7f56d9;  /* primary action */
-  --brand-700: #6941c6;
-  --brand-800: #53389e;
-  --brand-900: #42307d;
-  --brand-950: #2c1c5f;
+  --brand-25:  #f5f9ff;
+  --brand-50:  #eff6ff;
+  --brand-100: #dbeafe;
+  --brand-200: #bfdbfe;
+  --brand-300: #93c5fd;
+  --brand-400: #60a5fa;
+  --brand-500: #3b82f6;
+  --brand-600: #1d4ed8;  /* primary action (Figma accent) */
+  --brand-700: #1e40af;
+  --brand-800: #1e3a8a;
+  --brand-900: #1e3a8a;
+  --brand-950: #172554;
 
   /* ---- Supporting ---- */
   --error-500:   #f04438;
@@ -1378,7 +1378,7 @@ body {
 
 .hero-overlay {
   background:
-    radial-gradient(circle at 74% 34%, rgba(124, 58, 237, 0.2), transparent 34%),
+    radial-gradient(circle at 74% 34%, rgba(29, 78, 216, 0.2), transparent 34%),
     radial-gradient(circle at 50% 100%, rgba(31, 15, 78, 0.44), transparent 42%),
     linear-gradient(90deg, rgba(0, 0, 0, 0.66), transparent 58%);
 }
@@ -1505,7 +1505,7 @@ body {
 
 .products-section {
   background:
-    radial-gradient(circle at 82% 10%, rgba(139, 92, 246, 0.06), transparent 28%),
+    radial-gradient(circle at 82% 10%, rgba(29, 78, 216, 0.06), transparent 28%),
     var(--paper);
 }
 
@@ -1551,7 +1551,7 @@ body {
 
 .product-eyebrow {
   margin-bottom: 42px;
-  background: rgba(139, 92, 246, 0.075);
+  background: rgba(29, 78, 216, 0.075);
   font-size: var(--text-sm);
 }
 
@@ -1574,7 +1574,7 @@ body {
 .product-slide-visual {
   min-height: 760px;
   background:
-    radial-gradient(circle at 50% 18%, rgba(139, 92, 246, 0.08), transparent 34%),
+    radial-gradient(circle at 50% 18%, rgba(29, 78, 216, 0.08), transparent 34%),
     linear-gradient(180deg, var(--paper) 0%, var(--paper) 100%);
 }
 
@@ -1815,7 +1815,7 @@ body {
   justify-self: end;
   align-self: start;
   border-radius: var(--radius-pill);
-  background: rgba(139, 92, 246, 0.18);
+  background: rgba(29, 78, 216, 0.18);
   padding: 6px 10px;
   color: rgba(255,255,255,0.72);
   font-size: var(--text-2xs);
@@ -1838,8 +1838,8 @@ body {
   min-height: 1120px;
   overflow: hidden;
   background:
-    radial-gradient(circle at 16% 28%, rgba(139, 92, 246, 0.16), transparent 27%),
-    radial-gradient(circle at 82% 20%, rgba(168, 130, 250, 0.16), transparent 28%),
+    radial-gradient(circle at 16% 28%, rgba(29, 78, 216, 0.16), transparent 27%),
+    radial-gradient(circle at 82% 20%, rgba(96, 165, 250, 0.16), transparent 28%),
     linear-gradient(180deg, #f4f1fb 0%, #faf8ff 54%, #ece6fb 100%);
   color: var(--slate-900);
 }
@@ -1954,12 +1954,12 @@ body {
 .shape-card {
   background:
     radial-gradient(circle at 68% 28%, rgba(255,255,255,0.72), transparent 24%),
-    radial-gradient(circle at 26% 70%, rgba(139, 92, 246, 0.40), transparent 38%),
-    linear-gradient(145deg, rgba(250, 248, 255, 0.86), rgba(196, 181, 253, 0.54) 52%, rgba(70, 70, 70, 0.48));
+    radial-gradient(circle at 26% 70%, rgba(29, 78, 216, 0.40), transparent 38%),
+    linear-gradient(145deg, rgba(250, 248, 255, 0.86), rgba(147, 197, 253, 0.54) 52%, rgba(70, 70, 70, 0.48));
   box-shadow:
     inset 30px 34px 70px rgba(255,255,255,0.38),
     inset -38px -48px 90px rgba(17, 24, 39, 0.22),
-    0 34px 90px rgba(124, 58, 237, 0.12);
+    0 34px 90px rgba(29, 78, 216, 0.12);
   /* backdrop-filter removed: re-sampling blur on 6 moving shapes every frame
      was the main scroll-jank source; gradients + box-shadow keep the look. */
 }
@@ -2177,18 +2177,18 @@ body {
 .shape-card {
   background:
     radial-gradient(circle at 68% 28%, rgba(255,255,255,0.72), transparent 24%),
-    radial-gradient(circle at 28% 72%, rgba(111, 81, 151, 0.42), transparent 38%),
-    linear-gradient(145deg, rgba(250, 248, 255, 0.86), rgba(111, 81, 151, 0.54) 52%, rgba(54, 46, 72, 0.48));
+    radial-gradient(circle at 28% 72%, rgba(29, 78, 216, 0.42), transparent 38%),
+    linear-gradient(145deg, rgba(250, 248, 255, 0.86), rgba(29, 78, 216, 0.54) 52%, rgba(54, 46, 72, 0.48));
   box-shadow:
     inset 30px 34px 70px rgba(255,255,255,0.34),
     inset -38px -48px 90px rgba(36, 26, 54, 0.24),
-    0 34px 90px rgba(111, 81, 151, 0.14);
+    0 34px 90px rgba(29, 78, 216, 0.14);
 }
 
 .geometry-physics-section {
   background:
-    radial-gradient(circle at 16% 28%, rgba(111, 81, 151, 0.14), transparent 27%),
-    radial-gradient(circle at 82% 20%, rgba(111, 81, 151, 0.16), transparent 28%),
+    radial-gradient(circle at 16% 28%, rgba(29, 78, 216, 0.14), transparent 27%),
+    radial-gradient(circle at 82% 20%, rgba(29, 78, 216, 0.16), transparent 28%),
     linear-gradient(180deg, #f4f1fb 0%, #faf8ff 54%, #e7dcf3 100%);
 }
 
@@ -2401,7 +2401,7 @@ body {
   align-self: start;
   min-width: 66px;
   border-radius: var(--radius-pill);
-  background: rgba(111, 81, 151, 0.45);
+  background: rgba(29, 78, 216, 0.45);
   padding: 8px 13px;
   color: rgba(255,255,255,0.82);
   font-size: var(--text-xs);
@@ -2697,7 +2697,7 @@ body {
   border-radius: var(--radius-lg);
   padding: 34px;
   background:
-    radial-gradient(circle at 80% 10%, rgba(111,81,151,0.28), transparent 34%),
+    radial-gradient(circle at 80% 10%, rgba(29,78,216,0.28), transparent 34%),
     rgba(255,255,255,0.05);
 }
 
@@ -2727,7 +2727,7 @@ body {
 
 .who-section {
   background:
-    radial-gradient(circle at 14% 20%, rgba(111,81,151,0.22), transparent 32%),
+    radial-gradient(circle at 14% 20%, rgba(29,78,216,0.22), transparent 32%),
     #08070a;
 }
 
@@ -2752,8 +2752,8 @@ body {
 
 .audience-card:hover {
   transform: translateY(-8px);
-  border-color: rgba(111,81,151,0.48);
-  background: rgba(111,81,151,0.12);
+  border-color: rgba(29,78,216,0.48);
+  background: rgba(29,78,216,0.12);
 }
 
 .audience-card > span {
@@ -2815,7 +2815,7 @@ body {
   position: relative;
   overflow: hidden;
   background:
-    radial-gradient(circle at 50% 0%, rgba(111,81,151,0.32), transparent 35%),
+    radial-gradient(circle at 50% 0%, rgba(29,78,216,0.32), transparent 35%),
     linear-gradient(180deg, var(--ink-900) 0%, #0f0818 100%);
   color: #fff;
   padding: var(--space-section) var(--page-gutter);
@@ -3133,7 +3133,7 @@ body {
   padding: 24px 24px;
   border-right: 1px solid rgba(255,255,255,0.08);
   background:
-    radial-gradient(circle at 0% 0%, rgba(111,81,151,0.26), transparent 36%),
+    radial-gradient(circle at 0% 0%, rgba(29,78,216,0.26), transparent 36%),
     rgba(255,255,255,0.03);
 }
 
@@ -3215,7 +3215,7 @@ body {
 .dark-shadow-nav .mega-product-link em {
   justify-self: end;
   border-radius: var(--radius-pill);
-  background: rgba(111,81,151,0.46);
+  background: rgba(29,78,216,0.46);
   padding: 6px 9px;
   color: rgba(255,255,255,0.82);
   font-size: var(--text-2xs);
