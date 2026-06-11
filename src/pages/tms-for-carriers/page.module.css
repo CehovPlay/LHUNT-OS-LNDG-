@@ -1,0 +1,13 @@
+.page {
+  width: 1920px;
+  margin: 0 auto;
+  background: var(--c-page-bg);
+  overflow: hidden;
+}
+
+/* ts4 — inline UNDERLINE links inside the "Connected to everything else." body.
+   Promoted to shared typography .inlineLink; composed here to keep the local name. */
+.link {
+  composes: inlineLink from '@/components/shared/typography.module.css';
+}
+

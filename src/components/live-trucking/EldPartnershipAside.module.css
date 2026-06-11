@@ -1,0 +1,31 @@
+/* 3:5956 area — second separator (Figma: Description · Separator · Checkbox)
+   plus the question + Get-in-touch button. The leading separator and the 60px
+   space above it are part of the left text block in Figma; recreated here so the
+   shared EldProviders stays generic. */
+.aside {
+  display: flex;
+  flex-direction: column;
+  gap: 19px;
+}
+
+/* Separator before the question — matches the body separator (#E5E5E5). */
+.separator {
+  width: 100%;
+  height: 0;
+  margin: 41px 0 41px; /* 60 - 19 gap below; balances the textBlock 60 gap above */
+  border: none;
+  border-top: 1px solid var(--c-separator);
+}
+
+/* style_Y9AAFZ — Suisse 20/24, -4%, Dark gray */
+.question {
+  composes: body20 from '@/components/shared/typography.module.css';
+}
+
+/* layout_EM585J — primary button, width 240 (fill_JVM601 #1D4ED8 = btnPrimary) */
+.button {
+  composes: btnBase from '@/components/shared/buttons.module.css';
+  composes: btnPrimary from '@/components/shared/buttons.module.css';
+  width: 240px;
+  text-decoration: none;
+}

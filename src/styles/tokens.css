@@ -1,0 +1,27 @@
+:root {
+  /* fonts (connection in Task 2) */
+  --font-inter: 'Inter', sans-serif;
+  --font-satoshi: 'Satoshi', sans-serif;
+  --font-suisse: 'Suisse Intl', sans-serif;
+  --font-booton: 'Booton', sans-serif;
+
+  /* colors from Figma globalVars */
+  --c-text-primary: #171717;   /* fill_T0T3RX */
+  --c-text-muted: #6D6D6C;     /* fill_SQTKVI */
+  --c-border-light: #D9D9D9;   /* fill_5CDZMM */
+  --c-nav-bg: rgba(255, 255, 255, 0.1); /* fill_R7V22M */
+  --c-page-bg: #FCFCFC;        /* fill_EW4OMD */
+  --c-white: #FFFFFF;          /* fill_W04GNP */
+  --c-heading: #3F3F3F;        /* fill_QS0DGW */
+  --c-body: #686B6F;           /* Dark gray */
+  --c-separator: #E5E5E5;      /* fill_YMZA0B */
+  --c-footer-bg: #FAFAFA;      /* fill_5O95ZF */
+  --c-btn-primary: #1D4ED8;    /* fill_JVM601 */
+  --c-input-border: #D4D4D4;   /* Neutral/300 */
+  --c-input-placeholder: #737373; /* Neutral/500 */
+  --c-label: #404040;          /* Neutral/700 */
+  --shadow-xs: 0px 1px 2px 0px rgba(0, 0, 0, 0.05); /* Shadow/xs */
+  --c-modal-bg-default: #B9B9B9; /* accounting waitlist bg */
+  --c-modal-bg-marketplace: #CDCDCD; /* fill_QIFB0L marketplace waitlist bg */
+  --c-required: #D1496D;         /* ts1 — required-field asterisk */
+}

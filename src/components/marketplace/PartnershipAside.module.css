@@ -1,0 +1,19 @@
+/* layout_R53V7C — column, gap 19, stretches the 625px text block */
+.aside {
+  display: flex;
+  flex-direction: column;
+  gap: 19px;
+}
+
+/* style_Y9AAFZ — Suisse 20/24, -4%, Dark gray */
+.question {
+  composes: body20 from '@/components/shared/typography.module.css';
+}
+
+/* layout_EM585J — primary button, width 240 (fill_JVM601 #1D4ED8 = btnPrimary) */
+.button {
+  composes: btnBase from '@/components/shared/buttons.module.css';
+  composes: btnPrimary from '@/components/shared/buttons.module.css';
+  width: 240px;
+  text-decoration: none;
+}

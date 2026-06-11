@@ -1,0 +1,31 @@
+/* Shared typography primitives — single source for repeated text styles. */
+
+/* style_ESHG40 — Booton Medium 48/58, -4%, #3F3F3F */
+.heading48 {
+  margin: 0;
+  font-family: var(--font-booton);
+  font-weight: 500;
+  font-size: 48px;
+  line-height: 58px;
+  letter-spacing: -0.04em;
+  color: var(--c-heading);
+}
+
+/* style_Y9AAFZ — Suisse Intl Regular 20/24, -4%, #686B6F */
+.body20 {
+  margin: 0;
+  font-family: var(--font-suisse);
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: -0.04em;
+  color: var(--c-body);
+}
+
+/* ts4 / ts7 — inline UNDERLINE links embedded in body copy.
+   Inherits the surrounding body colour; only adds the underline.
+   Shared so pages compose it instead of duplicating the rule. */
+.inlineLink {
+  color: inherit;
+  text-decoration: underline;
+}

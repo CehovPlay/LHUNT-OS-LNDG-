@@ -1,0 +1,13 @@
+.page {
+  width: 1920px;
+  margin: 0 auto;
+  background: var(--c-page-bg);
+  overflow: hidden;
+}
+
+/* ts7 — цвет #686B6F инлайн-ссылок в теле "Tracking is one module of many."; underline
+   добавлен классом .inlineLink (typography.module.css), в ts7 его нет.
+   Promoted to shared typography; composed here to keep a page-local class name. */
+.link {
+  composes: inlineLink from '@/components/shared/typography.module.css';
+}

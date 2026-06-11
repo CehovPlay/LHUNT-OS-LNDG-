@@ -1,0 +1,136 @@
+/* Form Container — layout_1VPFH0: column, gap 60, width 480 */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  width: 480px;
+}
+
+/* Form Fields — layout_R53V7C: column, gap 19 */
+.formFields {
+  display: flex;
+  flex-direction: column;
+  gap: 19px;
+}
+
+/* Input with label — layout_DCRPXT: column gap 6 */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* 12 Subtle — Inter Medium 12/14, -4%, Neutral/700 */
+.fieldLabel {
+  font-family: var(--font-inter);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: -0.04em;
+  color: var(--c-label);
+}
+
+.req {
+  /* ts1 — required asterisk #D1496D */
+  color: var(--c-required);
+}
+
+/* Wrapper for select — positions the chevron icon absolutely */
+.inputWrapper {
+  position: relative;
+  display: block;
+}
+
+.inputWrapper .selectChevron {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* Input / Select — layout_4SD7TW: row, center, gap 8, padding 10 14, h44 */
+/* Resets native appearance so it looks identical to the original span mock-up */
+.input {
+  display: block;
+  width: 100%;
+  height: 44px;
+  padding: 10px 14px;
+  background: var(--c-white);
+  border: 1px solid var(--c-input-border);
+  border-radius: 8px;
+  box-shadow: var(--shadow-xs);
+  /* native reset */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  font-family: var(--font-inter);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: -0.04em;
+  color: var(--c-text-primary);
+  box-sizing: border-box;
+}
+
+.input::placeholder {
+  color: var(--c-input-placeholder);
+  font-weight: 500;
+}
+
+/* Select: placeholder option is shown in muted colour */
+.input:has(option[value=""]:checked) {
+  color: var(--c-input-placeholder);
+}
+
+.input:focus {
+  border-color: var(--c-btn-primary);
+  box-shadow: var(--shadow-xs);
+}
+
+.selectChevron {
+  width: 12px;
+  height: 6px;
+  flex: 0 0 auto;
+}
+
+/* Checkbox Container — layout_XK0EZI: column gap 19 (checkbox row + button) */
+.checkboxRow {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.checkbox {
+  flex: 0 0 auto;
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
+  background: var(--c-white);
+  border: 1px solid var(--c-separator);
+  border-radius: 4px;
+  box-shadow: var(--shadow-xs);
+  /* reset native appearance */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+/* style_NHAYQX — Suisse Intl 14, -4%, Dark gray */
+.checkboxLabel {
+  font-family: var(--font-suisse);
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: -0.04em;
+  color: var(--c-body);
+}
+
+/* Buttons/Button — _Button base layout_H5SKB2: full-width fill #1D4ED8 (shared base). */
+.submit {
+  composes: btnBase btnPrimary from './buttons.module.css';
+  display: flex;
+  width: 100%;
+}

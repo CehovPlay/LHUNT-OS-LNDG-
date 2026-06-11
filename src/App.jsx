@@ -1,4 +1,6 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { lazy, Suspense, useEffect, useMemo, useRef, useState } from "react";
+import { Routes, Route } from "react-router-dom";
+import ProductLayout from "./layouts/ProductLayout.jsx";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
@@ -52,12 +54,12 @@ function Header() {
   }, []);
 
   const productLinks = [
-    { name: "Marketplace", description: "Every load source, one feed" },
-    { name: "TMS for Carriers", description: "Drivers, trucks, dispatch" },
-    { name: "TMS for Brokers", description: "Direct posting & matching", status: "Coming soon" },
-    { name: "Live Tracking", description: "ELD-powered fleet visibility" },
-    { name: "Accounting", description: "Invoices, settlements, factoring" },
-    { name: "$LHUNT", description: "The token aligning the network" },
+    { name: "Marketplace", description: "Every load source, one feed", href: "/marketplace" },
+    { name: "TMS for Carriers", description: "Drivers, trucks, dispatch", href: "/tms-for-carriers" },
+    { name: "TMS for Brokers", description: "Direct posting & matching", status: "Coming soon", href: "/tms-for-brokers" },
+    { name: "Live Tracking", description: "ELD-powered fleet visibility", href: "/live-trucking" },
+    { name: "Accounting", description: "Invoices, settlements, factoring", href: "/accounting" },
+    { name: "$LHUNT", description: "The token aligning the network", href: "#" },
   ];
 
   const closeMobile = () => setMobileOpen(false);
@@ -91,7 +93,7 @@ function Header() {
             <div className="navbar-panel">
               <div className="navbar-panel-grid">
                 {productLinks.map((product) => (
-                  <a className="navbar-panel-link" href="#products" key={product.name}>
+                  <a className="navbar-panel-link" href={product.href} key={product.name}>
                     <span className="navbar-panel-name">
                       {product.name}
                       {product.status && <em>{product.status}</em>}
@@ -1274,7 +1276,36 @@ function Footer() {
 }
 
 
+const MarketplacePage   = lazy(() => import("./pages/marketplace/page.tsx"));
+const TmsCarriersPage   = lazy(() => import("./pages/tms-for-carriers/page.tsx"));
+const TmsBrokersPage    = lazy(() => import("./pages/tms-for-brokers/page.tsx"));
+const LiveTrackingPage  = lazy(() => import("./pages/live-trucking/page.tsx"));
+const AccountingPage    = lazy(() => import("./pages/accounting/page.tsx"));
+
 export default function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/marketplace"       element={<Suspense fallback={null}><ProductLayout><MarketplacePage /></ProductLayout></Suspense>} />
+      <Route path="/tms-for-carriers"  element={<Suspense fallback={null}><ProductLayout><TmsCarriersPage /></ProductLayout></Suspense>} />
+      <Route path="/tms-for-brokers"   element={<Suspense fallback={null}><ProductLayout><TmsBrokersPage /></ProductLayout></Suspense>} />
+      <Route path="/live-trucking"     element={<Suspense fallback={null}><ProductLayout><LiveTrackingPage /></ProductLayout></Suspense>} />
+      <Route path="/accounting"        element={<Suspense fallback={null}><ProductLayout><AccountingPage /></ProductLayout></Suspense>} />
+    </Routes>
+  );
+}
+
+function LandingPage() {
+  useEffect(() => {
+    // Keep body dark while landing page is mounted (counters any product-page CSS that may have loaded).
+    document.body.style.setProperty("background", "#000");
+    document.body.style.setProperty("color", "#fff");
+    return () => {
+      document.body.style.removeProperty("background");
+      document.body.style.removeProperty("color");
+    };
+  }, []);
+
   useEffect(() => {
     const ctx = gsap.context(() => {
       const textItems = gsap.utils.toArray(

@@ -1,0 +1,23 @@
+/* layout_BA8DJ1 — 1920x920 band, top border (Line 2) */
+.band {
+  position: relative;
+  width: 1920px;
+  height: 920px;
+  border-top: 1px solid var(--c-border-light);
+  overflow: hidden;
+}
+
+/* Heavy white wash matching the Figma reference (mean ~242, min ~212). */
+.wash {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.82);
+  pointer-events: none;
+}
+
+.video {
+  width: 1920px;
+  height: 920px;
+  object-fit: cover;
+  object-position: center top;
+}

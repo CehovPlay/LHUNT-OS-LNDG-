@@ -1,0 +1,32 @@
+/* Shared button primitives — hoisted from Hero (layout_4GYD2E / _Button base). */
+
+/* Base button — row center gap8, padding 10 18, radius 8, shadow xs, Inter Medium 16/20 */
+.btnBase {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 8px;
+  box-shadow: var(--shadow-xs);
+  font-family: var(--font-inter);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: -0.04em;
+  border: 1px solid transparent;
+}
+
+/* Primary — filled #1D4ED8, white text */
+.btnPrimary {
+  background: var(--c-btn-primary);
+  border-color: var(--c-btn-primary);
+  color: var(--c-white);
+}
+
+/* Secondary — white fill, input border, label text */
+.btnSecondary {
+  background: var(--c-white);
+  border-color: var(--c-input-border);
+  color: var(--c-label);
+}

@@ -1,0 +1,36 @@
+/* layout_BTELR5 — row center, padding-top 200, min-height 634, w1920, bottom border.
+   Figma text box reserves slightly more height than the rendered glyphs, so we
+   pin the section height to the Figma frame (634) while keeping text top-anchored. */
+.section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 200px 0;
+  min-height: 634px;
+  width: 1920px;
+  border-bottom: 1px solid var(--c-border-light);
+  box-sizing: border-box;
+}
+
+/* layout_5PXAUO — column align center, gap 60, w1760 */
+.group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+  width: 1760px;
+}
+
+/* style_DAABY0 — Booton Medium 48/58, -4%, centered, #3F3F3F */
+.title {
+  composes: heading48 from './typography.module.css';
+  text-align: center;
+}
+
+/* style_2V7AJQ — Suisse 20/24, -4%, centered, #686B6F */
+.description {
+  composes: body20 from './typography.module.css';
+  text-align: center;
+  white-space: pre-line;
+}

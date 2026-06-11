@@ -3,5 +3,8 @@
   "framework": "vite",
   "installCommand": "npm install --legacy-peer-deps --no-audit --no-fund --no-package-lock",
   "buildCommand": "npm run build",
-  "outputDirectory": "dist"
+  "outputDirectory": "dist",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
 }

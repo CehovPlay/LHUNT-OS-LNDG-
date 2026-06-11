@@ -1,0 +1,85 @@
+/* Figma 3:3071 — Frame 1920x63, row, space-between, center, padding 0 20 */
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 1920px;
+  height: 63px;
+  padding: 0 20px;
+  background: var(--c-nav-bg);
+  border-bottom: 1px solid var(--c-border-light);
+}
+
+/* Logo container: GROUP 100x24, child Logo frame row gap 10 */
+.logoContainer {
+  position: relative;
+  width: 100px;
+  height: 24px;
+}
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  height: 24px;
+}
+
+.logoMark {
+  width: 24px;
+  height: 24px;
+}
+
+/* style_4BVP55 — Satoshi Bold 19.98/18.75, -4%, #171717, opentype ss01 */
+.logoText {
+  font-family: var(--font-satoshi);
+  font-weight: 700;
+  font-size: 19.98px;
+  line-height: 18.75px;
+  letter-spacing: -0.04em;
+  color: var(--c-text-primary);
+  font-feature-settings: 'ss01' 1;
+}
+
+/* Navigation links: row gap 32 */
+.links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 32px;
+}
+
+/* Navigation bar buttons: row, center, h24, backdrop blur 20 */
+.linkBtn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  height: 24px;
+  backdrop-filter: blur(20px);
+  text-decoration: none;
+  /* 14 Small — Inter Medium 14/16, -4%, #6D6D6C */
+  font-family: var(--font-inter);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: -0.04em;
+  color: var(--c-text-muted);
+  white-space: nowrap;
+}
+
+.linkBtnFirst {
+  border-radius: 99px 0 0 99px;
+}
+
+/* Products button has chevron — gap 12 (layout_3JZU00) */
+.linkBtnProducts {
+  gap: 12px;
+}
+
+.chevron {
+  width: 9px;
+  height: 4px;
+}

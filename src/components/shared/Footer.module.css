@@ -1,0 +1,210 @@
+/* Figma node 3:1782 — Main Frame (GROUP) 1920 wide */
+.footer {
+  width: 1920px;
+}
+
+/* Modal — layout_NAC9O0: row, center, gap 200, padding x20, width 1880 (offset x20) */
+.modal {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 200px;
+  width: 1880px;
+  margin: 0 20px;
+  background: var(--c-white);
+  border: 1px solid var(--c-border-light);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Modal Background — layout_LGZWTS 961x800 */
+.modalBg {
+  position: relative;
+  flex: 0 0 auto;
+  width: 961px;
+  height: 800px;
+  border: 1px solid var(--c-border-light);
+  overflow: hidden;
+}
+
+/* Vector 3:1795 — a large offset decorative SVG (2566x2566 at x-813 y-882) with a
+   white→transparent gradient fill. Only a faint sliver overlaps the top-left of the
+   modal, so the box reads as near-uniform gray. A full-coverage overlay over-whitens
+   the top; approximate the real sliver with a soft top-left radial highlight. */
+.modalGradient {
+  position: absolute;
+  inset: 0;
+  background: var(
+    --footer-modal-gradient,
+    radial-gradient(
+      140% 90% at 0% -20%,
+      rgba(255, 255, 255, 0.28) 0%,
+      rgba(255, 255, 255, 0) 45%
+    )
+  );
+  pointer-events: none;
+}
+
+/* Logo and Title Container — layout_4WIE5E: column gap 40 at x229 y295 */
+.modalContent {
+  position: absolute;
+  left: 229px;
+  top: 295px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  color: var(--c-white);
+}
+
+/* Logo — layout_O9JD6Q: row, center, gap 7.5, h24 */
+.modalLogo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 7.5px;
+  height: 24px;
+}
+
+/* style_H21P5K — Satoshi Bold 19.98/18.75, -4%, ss01, white */
+.modalLogoText {
+  font-family: var(--font-satoshi);
+  font-weight: 700;
+  font-size: 19.98px;
+  line-height: 18.75px;
+  letter-spacing: -0.04em;
+  font-feature-settings: 'ss01' 1;
+  color: var(--c-white);
+}
+
+/* style_ESHG40 — Booton Medium 48/58 */
+.modalHeading {
+  margin: 0;
+  font-family: var(--font-booton);
+  font-weight: 500;
+  font-size: 48px;
+  line-height: 58px;
+  letter-spacing: -0.04em;
+  color: var(--c-white);
+}
+
+/* style_Y9AAFZ — Suisse Intl Regular 20/24 */
+.modalDesc {
+  margin: 0;
+  max-width: 480px;
+  font-family: var(--font-suisse);
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: -0.04em;
+  color: var(--c-white);
+}
+
+/* Container — layout_X8KU64: column, padding 0 20, #FAFAFA, offset y800 */
+.linksBar {
+  display: flex;
+  flex-direction: column;
+  width: 1920px;
+  padding: 0 20px;
+  background: var(--c-footer-bg);
+}
+
+/* Container — layout_KCH7YP: column, gap 80, padding-top 80 */
+.linksInner {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  padding-top: 80px;
+}
+
+/* Container — layout_O9FFAY: row, space-between, wrap, gap 16 */
+.linksTop {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+/* Back to home page — _Button base outline (shared btnBase + btnSecondary) */
+.backHome {
+  composes: btnBase btnSecondary from './buttons.module.css';
+  align-self: flex-start;
+  display: inline-block;
+  text-decoration: none;
+}
+
+/* Container — layout_AWVH77: row, gap 140 */
+.columns {
+  display: flex;
+  flex-direction: row;
+  gap: 140px;
+}
+
+/* layout_CZY634 — column, gap 8, padding-bottom 8 (height 342 incl. link padding) */
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-bottom: 8px;
+}
+
+/* style_U47ZP8 — Suisse Intl 14/24, -4%, Dark gray. Heading at opacity 0.5 */
+.columnHeading {
+  font-family: var(--font-suisse);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: -0.04em;
+  color: var(--c-body);
+  opacity: 0.5;
+  padding-bottom: 8px;
+}
+
+.columnLink {
+  font-family: var(--font-suisse);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: -0.04em;
+  color: var(--c-body);
+  padding: 8px 0;
+  text-decoration: none;
+}
+
+/* Container — layout_C1MQS3: column, center, padding 20 0, top border */
+.bottomBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-top: 1px solid var(--c-border-light);
+}
+
+/* Footer Logo — layout_O9JD6Q row gap 7.5 */
+.footerLogo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 7.5px;
+  height: 24px;
+}
+
+.footerLogoText {
+  font-family: var(--font-satoshi);
+  font-weight: 700;
+  font-size: 19.98px;
+  line-height: 18.75px;
+  letter-spacing: -0.04em;
+  font-feature-settings: 'ss01' 1;
+  color: var(--c-text-primary);
+}
+
+.copyright {
+  font-family: var(--font-suisse);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: -0.04em;
+  color: var(--c-body);
+}
