@@ -13,11 +13,11 @@ export default function NavBar() {
   return (
     <header className={styles.navbar}>
       <div className={styles.logoContainer}>
-        <div className={styles.logo}>
+        <a href="/" className={styles.logo}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/assets/shared/logo.svg" alt="" width={24} height={24} className={styles.logoMark} />
           <span className={styles.logoText}>huntOS</span>
-        </div>
+        </a>
       </div>
 
       <nav className={styles.links}>
