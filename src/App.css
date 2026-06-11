@@ -3700,3 +3700,161 @@ body {
 .partner-logo:hover {
   color: var(--gray-600);
 }
+
+/* ============================================================
+   STORY SECTIONS (§4, §5) — light, Untitled UI
+   ============================================================ */
+.story-section {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  padding: var(--sp-32) var(--page-gutter);
+}
+
+.story-section-alt {
+  background: var(--bg-secondary);
+}
+
+.story-inner {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: center;
+  gap: clamp(40px, 6vw, 96px);
+}
+
+.story-inner-stack {
+  grid-template-columns: 1fr;
+  justify-items: center;
+  text-align: center;
+  gap: var(--sp-16);
+}
+
+.story-title {
+  margin: 0 0 var(--sp-6);
+  font-size: clamp(30px, 3.6vw, 48px);
+  line-height: 1.1;
+  font-weight: var(--fw-semibold);
+  letter-spacing: -0.025em;
+  color: var(--text-primary);
+  text-wrap: balance;
+}
+
+.story-copy p {
+  margin: 0 0 var(--sp-5);
+  font-size: var(--text-xl2);
+  line-height: 1.55;
+  color: var(--text-tertiary);
+}
+
+.story-copy p:last-child {
+  margin-bottom: 0;
+}
+
+.story-copy-wide {
+  max-width: 760px;
+}
+
+/* §4 visual: five tools -> one */
+.story-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-6);
+  padding: var(--sp-8);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--r-2xl);
+  box-shadow: var(--shadow-sm);
+}
+
+.ws-tools {
+  display: grid;
+  gap: var(--sp-2);
+}
+
+.ws-tool {
+  padding: 10px 14px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--r-lg);
+  font-size: var(--text-sm2);
+  font-weight: var(--fw-medium);
+  color: var(--text-secondary);
+  box-shadow: var(--shadow-xs);
+}
+
+.ws-arrow {
+  color: var(--gray-400);
+  font-size: 28px;
+  flex: none;
+}
+
+.ws-one {
+  padding: 18px 22px;
+  background: var(--brand-600);
+  color: var(--text-on-brand);
+  border-radius: var(--r-xl);
+  font-size: var(--text-lg2);
+  font-weight: var(--fw-semibold);
+  letter-spacing: -0.02em;
+  box-shadow: var(--shadow-lg);
+  flex: none;
+}
+
+/* §5 timeline */
+.os-timeline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-3) var(--sp-2);
+  width: 100%;
+  max-width: 980px;
+}
+
+.os-step {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px 10px 12px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--r-full);
+  box-shadow: var(--shadow-xs);
+}
+
+.os-step-dot {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--r-full);
+  background: var(--brand-50);
+  color: var(--brand-700);
+  font-size: var(--text-xs2);
+  font-weight: var(--fw-bold);
+}
+
+.os-step-label {
+  font-size: var(--text-md2);
+  font-weight: var(--fw-medium);
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.os-step + .os-step::before {
+  content: "→";
+  color: var(--gray-300);
+  margin-right: var(--sp-2);
+}
+
+@media (max-width: 880px) {
+  .story-inner {
+    grid-template-columns: 1fr;
+    gap: var(--sp-10);
+  }
+  .story-section {
+    padding: var(--sp-20) var(--page-gutter);
+  }
+}

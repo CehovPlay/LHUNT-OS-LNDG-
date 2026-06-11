@@ -431,6 +431,85 @@ function PartnerStrip() {
   );
 }
 
+function OneWorkspaceSection() {
+  return (
+    <section className="story-section">
+      <div className="story-inner">
+        <div className="story-copy">
+          <h2 className="story-title">One workspace. The whole operation.</h2>
+          <p>
+            Today, an average US carrier runs their business across five
+            disconnected platforms. DAT for loads. Truckstop for backup. Samsara
+            for tracking. QuickBooks for invoices. An Excel sheet for everything
+            in between.
+          </p>
+          <p>Every shipment touches all of them. None of them talk to each other.</p>
+          <p>
+            Loadhunt is the layer above. One workspace where the day flows from
+            finding a load, to booking it, to assigning a driver, to tracking the
+            truck, to sending the invoice, to seeing the deposit hit. Not five
+            logins. One.
+          </p>
+        </div>
+
+        <div className="story-visual" aria-hidden="true">
+          <div className="ws-tools">
+            {["DAT", "Samsara", "QuickBooks", "Excel", "Email / phone"].map((tool) => (
+              <span className="ws-tool" key={tool}>
+                {tool}
+              </span>
+            ))}
+          </div>
+          <span className="ws-arrow">→</span>
+          <div className="ws-one">Loadhunt</div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function LoadboardToOsSection() {
+  const steps = [
+    "Load discovery",
+    "Booking",
+    "Dispatch",
+    "Tracking",
+    "Invoicing",
+    "Payment",
+  ];
+
+  return (
+    <section className="story-section story-section-alt">
+      <div className="story-inner story-inner-stack">
+        <div className="story-copy story-copy-wide">
+          <h2 className="story-title">From load board to operating system.</h2>
+          <p>
+            Most freight tech tries to make one piece better — a smarter load
+            board, a faster ELD app, a cleaner accounting tool. Carriers end up
+            with a stack of tools that each solve 10% of the problem.
+          </p>
+          <p>
+            Loadhunt takes a different approach: we don't try to be the best at
+            one thing. We're the workspace where every thing happens. Aggregating
+            load boards is just the entry point. The platform extends into
+            dispatch, fleet management, live tracking, accounting, and market
+            intelligence — all on the same operational backbone.
+          </p>
+        </div>
+
+        <div className="os-timeline" aria-hidden="true">
+          {steps.map((step, index) => (
+            <div className="os-step" key={step}>
+              <span className="os-step-dot">{index + 1}</span>
+              <span className="os-step-label">{step}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function ProblemSection() {
   return (
     <section id="network" className="problem-section">
@@ -1047,6 +1126,8 @@ export default function App() {
       <main>
         <HeroSequence />
         <PartnerStrip />
+        <OneWorkspaceSection />
+        <LoadboardToOsSection />
         <ProblemSection />
         <TrustMetricsSection />
         <WhoForSection />
