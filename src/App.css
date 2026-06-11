@@ -916,7 +916,7 @@ main {
 
 @media (max-width: 900px) {
   :root {
-    --display-title-size: clamp(46px, 12vw, 82px);
+    --display-title-size: clamp(30px, 7vw, 42px);
   }
 
   .site-header {
@@ -1169,8 +1169,8 @@ main {
   --text-lg:   18px;
   --text-xl:   22px;
 
-  /* Type scale — display (headings), tuned to existing clusters */
-  --display-title-size: clamp(48px, 5.85vw, 104px);  /* primary section H2 */
+  /* Type scale — display (headings) — unified section-title size */
+  --display-title-size: clamp(32px, 4vw, 48px);  /* every section H2 */
   --display-lg:  clamp(42px, 4vw, 72px);              /* large H2/H3 */
   --display-md:  clamp(38px, 3.1vw, 54px);            /* product/card H3 */
   --display-sm:  clamp(28px, 2.4vw, 44px);            /* sub-section H3 */
@@ -1600,7 +1600,7 @@ body {
 
 @media (max-width: 900px) {
   :root {
-    --display-title-size: clamp(44px, 11.6vw, 78px);
+    --display-title-size: clamp(30px, 7vw, 44px);
   }
 
   .problem-section {
@@ -3740,7 +3740,7 @@ body {
 
 .story-title {
   margin: 0 0 var(--sp-6);
-  font-size: clamp(30px, 3.6vw, 48px);
+  font-size: var(--display-title-size);
   line-height: 1.1;
   font-weight: var(--fw-semibold);
   letter-spacing: -0.025em;
@@ -4032,7 +4032,7 @@ body {
 }
 
 .geometry-manifesto h2 {
-  font-size: clamp(30px, 3.6vw, 48px);
+  font-size: var(--display-title-size);
   line-height: 1.1;
   font-weight: var(--fw-semibold);
   letter-spacing: -0.025em;
@@ -4094,7 +4094,7 @@ body {
 
 .waitlist-head h2 {
   margin: 0;
-  font-size: clamp(32px, 4vw, 52px);
+  font-size: var(--display-title-size);
   line-height: 1.1;
   font-weight: var(--fw-semibold);
   letter-spacing: -0.025em;
