@@ -1152,23 +1152,91 @@ function IntegrationsSection() {
 }
 
 function FinalCTASection() {
-  return (
-    <section id="waitlist" className="final-cta-section">
-      <div className="final-cta-inner">
-        <span className="section-index">07 / Start</span>
-        <h2>Book a demo or join early access.</h2>
-        <p>
-          Start with the extension workflow today and stay close to the Loadhunt TMS, payments, driver, and ecosystem roadmap.
-        </p>
+  const [submitted, setSubmitted] = useState(false);
 
-        <div className="final-cta-actions">
-          <a href="https://www.loadhunter.io/demo" target="_blank" rel="noreferrer">
-            Book demo
-          </a>
-          <a href="mailto:hello@loadhunt.com?subject=Join%20Loadhunt%20early%20access">
-            Join early access
-          </a>
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setSubmitted(true);
+  };
+
+  return (
+    <section id="waitlist" className="waitlist-section">
+      <div className="waitlist-inner">
+        <div className="waitlist-head">
+          <h2>Be early.</h2>
+          <p>
+            Loadhunt rolls out by segment. Tell us who you are — we'll keep you
+            posted on access.
+          </p>
         </div>
+
+        {submitted ? (
+          <div className="waitlist-success">
+            <h3>You're on the list.</h3>
+            <p>
+              We'll reach out when there's something meaningful to share — not
+              just to fill a cadence.
+            </p>
+          </div>
+        ) : (
+          <form className="waitlist-form" onSubmit={handleSubmit}>
+            <label className="field">
+              <span className="field-label">Email *</span>
+              <input
+                className="field-input"
+                type="email"
+                required
+                placeholder="you@company.com"
+              />
+            </label>
+
+            <label className="field">
+              <span className="field-label">Company name *</span>
+              <input
+                className="field-input"
+                type="text"
+                required
+                placeholder="Acme Logistics"
+              />
+            </label>
+
+            <label className="field field-full">
+              <span className="field-label">I'm a... *</span>
+              <select className="field-input" required defaultValue="">
+                <option value="" disabled>
+                  Select role
+                </option>
+                <option>Carrier (owner / dispatcher)</option>
+                <option>Broker</option>
+                <option>Loadboard / ELD partner</option>
+                <option>Factoring partner</option>
+                <option>Investor / press</option>
+                <option>Other</option>
+              </select>
+            </label>
+
+            <label className="field field-full">
+              <span className="field-label">
+                Brief context <em>(optional)</em>
+              </span>
+              <textarea
+                className="field-input"
+                rows="3"
+                placeholder="Anything we should know?"
+              />
+            </label>
+
+            <div className="field-full waitlist-submit">
+              <button className="btn btn-primary btn-xl" type="submit">
+                Join waitlist
+              </button>
+              <p className="waitlist-micro">
+                We respond within 24 hours. We won't share your information or
+                spam you.
+              </p>
+            </div>
+          </form>
+        )}
       </div>
     </section>
   );

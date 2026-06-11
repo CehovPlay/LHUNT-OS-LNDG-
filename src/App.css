@@ -4062,3 +4062,140 @@ body {
   color: var(--text-secondary);
   white-space: nowrap;
 }
+
+/* ============================================================
+   §10 Waitlist section + form (Untitled UI inputs)
+   ============================================================ */
+.waitlist-section {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  padding: var(--sp-32) var(--page-gutter);
+}
+
+.waitlist-inner {
+  width: min(640px, 100%);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.waitlist-head h2 {
+  margin: 0;
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.1;
+  font-weight: var(--fw-semibold);
+  letter-spacing: -0.025em;
+  color: var(--text-primary);
+}
+
+.waitlist-head p {
+  max-width: 480px;
+  margin: var(--sp-4) auto 0;
+  font-size: var(--text-xl2);
+  line-height: 1.5;
+  color: var(--text-tertiary);
+}
+
+.waitlist-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-5);
+  margin-top: var(--sp-12);
+  text-align: left;
+}
+
+.field {
+  display: grid;
+  gap: var(--sp-1-5);
+}
+
+.field-full {
+  grid-column: 1 / -1;
+}
+
+.field-label {
+  font-size: var(--text-sm2);
+  font-weight: var(--fw-medium);
+  color: var(--text-secondary);
+}
+.field-label em {
+  font-style: normal;
+  color: var(--text-placeholder);
+  font-weight: var(--fw-regular);
+}
+
+.field-input {
+  width: 100%;
+  padding: 10px 14px;
+  font-family: "Inter", sans-serif;
+  font-size: var(--text-md2);
+  line-height: var(--text-md2-lh);
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-xs);
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+  appearance: none;
+}
+.field-input::placeholder {
+  color: var(--text-placeholder);
+}
+.field-input:focus {
+  outline: none;
+  border-color: var(--brand-300);
+  box-shadow: 0 0 0 4px var(--brand-100);
+}
+textarea.field-input {
+  resize: vertical;
+  min-height: 84px;
+}
+select.field-input {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M3 4.5 6 7.5 9 4.5' fill='none' stroke='%23667085' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+}
+
+.waitlist-submit {
+  display: grid;
+  gap: var(--sp-3);
+  justify-items: start;
+}
+.waitlist-submit .btn {
+  width: 100%;
+  justify-content: center;
+}
+.waitlist-micro {
+  margin: 0;
+  font-size: var(--text-sm2);
+  color: var(--text-placeholder);
+  text-align: center;
+  width: 100%;
+}
+
+.waitlist-success {
+  margin-top: var(--sp-12);
+  padding: var(--sp-12);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--r-2xl);
+}
+.waitlist-success h3 {
+  margin: 0;
+  font-size: var(--display-xs2);
+  font-weight: var(--fw-semibold);
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+.waitlist-success p {
+  margin: var(--sp-3) 0 0;
+  font-size: var(--text-lg2);
+  line-height: 1.5;
+  color: var(--text-tertiary);
+}
+
+@media (max-width: 560px) {
+  .waitlist-form {
+    grid-template-columns: 1fr;
+  }
+}
