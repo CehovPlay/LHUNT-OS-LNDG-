@@ -406,6 +406,31 @@ function HeroSequence() {
   );
 }
 
+const PARTNERS = [
+  "DAT",
+  "Truckstop",
+  "Direct Freight",
+  "Sylectus",
+  "Samsara",
+  "Motive",
+  "FMCSA verified",
+];
+
+function PartnerStrip() {
+  return (
+    <section className="partner-strip" aria-label="Industry partners">
+      <p className="partner-strip-label">Building with industry partners</p>
+      <div className="partner-strip-row">
+        {PARTNERS.map((partner) => (
+          <span className="partner-logo" key={partner}>
+            {partner}
+          </span>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function ProblemSection() {
   return (
     <section id="network" className="problem-section">
@@ -1021,6 +1046,7 @@ export default function App() {
       <Header />
       <main>
         <HeroSequence />
+        <PartnerStrip />
         <ProblemSection />
         <TrustMetricsSection />
         <WhoForSection />
