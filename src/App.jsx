@@ -336,7 +336,6 @@ function HeroSequence() {
           end: `+=${TOTAL_FRAMES * 34}`,
           scrub: true,
           pin: true,
-          anticipatePin: 1,
         },
       });
 
@@ -382,10 +381,27 @@ function HeroSequence() {
 
     }, section);
 
+    // Start anchored at the top so pinned triggers measure from a stable
+    // position, then recompute once async layout (images/fonts) settles.
+    // Without this the first scroll can jump by the pin-spacer amount.
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+    window.scrollTo(0, 0);
+
+    const refresh = () => ScrollTrigger.refresh();
+    window.addEventListener("load", refresh);
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(refresh);
+    }
+    const refreshTimer = window.setTimeout(refresh, 1200);
+
     window.addEventListener("resize", resize);
 
     return () => {
       window.removeEventListener("resize", resize);
+      window.removeEventListener("load", refresh);
+      window.clearTimeout(refreshTimer);
       gsap.ticker.remove(lenisTicker);
       lenis.destroy();
       ctx.revert();
@@ -683,7 +699,6 @@ function ProductsSection() {
           end: () => `+=${getScrollAmount() + window.innerWidth * 0.65}`,
           scrub: 1,
           pin: true,
-          anticipatePin: 1,
           invalidateOnRefresh: true,
         },
       });
@@ -792,16 +807,42 @@ function ProductSlide({ product, index, total }) {
 }
 
 function VideoStatementSection() {
+  const sectionRef = useRef(null);
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    const video = videoRef.current;
+    if (!section || !video) return undefined;
+
+    // Only decode/play the video while the section is on screen — a 30MB clip
+    // decoding off-screen contends with the main thread and janks scrolling.
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+      },
+      { rootMargin: "100px 0px" }
+    );
+
+    io.observe(section);
+    return () => io.disconnect();
+  }, []);
+
   return (
-    <section className="video-statement-section">
+    <section ref={sectionRef} className="video-statement-section">
       <video
+        ref={videoRef}
         className="video-statement-media"
         src="/videos/cardboard-boxes.mp4"
-        autoPlay
         muted
         loop
         playsInline
-        preload="metadata"
+        preload="none"
+        disablePictureInPicture
       />
       <div className="video-statement-overlay" />
       <div className="video-statement-content">
