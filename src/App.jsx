@@ -396,47 +396,11 @@ function HeroSequence() {
 
 function ProblemSection() {
   return (
-    <section id="problem" className="problem-section">
+    <section id="network" className="problem-section">
       <div className="problem-glow" />
       <div className="problem-grid" />
 
       <div className="problem-inner">
-        <div className="problem-header">
-          <span className="section-index">01 / Problem</span>
-          <div>
-            <h2>What we solve</h2>
-            <p className="problem-subtitle">
-              Trucking operations are still fragmented across tools that were never designed to work together
-            </p>
-          </div>
-        </div>
-
-        <div className="problem-layout">
-          <ProblemColumn
-            label="Current reality"
-            title="Teams lose time because every step lives in a different system."
-            bullets={[
-              "Dispatchers move between TMS, ELD dashboards, calls, and email;",
-              "Drivers switch apps for logs, navigation, documents, and payments;",
-              "Managers deal with scattered data and outdated reports;",
-              "Accounting waits for missing documents and confirmations.",
-            ]}
-            footer="This creates delays, bad rates, compliance gaps, and lost revenue."
-          />
-
-          <ProblemColumn
-            label="Loadhunt approach"
-            title="We connect the workflow into one operational ecosystem."
-            bullets={[
-              "Shared data across the team;",
-              "Unified workflow from search to payment;",
-              "Automated steps where possible;",
-              "Real-time visibility for the whole operation.",
-            ]}
-            footer="Less time jumping between systems. More time moving freight."
-          />
-        </div>
-
         <GlobeSection />
       </div>
     </section>
