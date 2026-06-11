@@ -993,12 +993,42 @@ function GeometryPhysicsSection() {
 
   return (
     <section id="motion" ref={sectionRef} className="geometry-physics-section">
-      <div className="geometry-copy">
-        <span className="section-index">06 / Motion system</span>
-        <h2>Freight operations should feel responsive, alive, and connected.</h2>
+      <div className="geometry-copy geometry-manifesto">
+        <span className="section-index">Roadmap</span>
+        <h2>Where we're going.</h2>
         <p>
-          Floating geometry reacts softly to scroll, creating a tactile motion moment after the dispatch story.
+          Today, Loadhunt is a workspace for carriers. A better way to find
+          loads. A simpler way to run dispatch.
         </p>
+        <p>
+          Within three years, the data flowing through the platform becomes the
+          most accurate freight market intelligence in the industry. Real-time.
+          Lane-specific. Broker-specific. Not survey-driven. Sold as a standalone
+          product to participants who never even use our platform.
+        </p>
+        <p>
+          Within five years, it's a unified network. Carriers, brokers, factoring
+          providers, ELD vendors, insurance — all working from the same
+          operational substrate. Transparent. Accountable.
+        </p>
+        <p>
+          We don't think of Loadhunt as a SaaS product. We think of it as
+          infrastructure for an industry that's overdue for it.
+        </p>
+
+        <div className="manifesto-timeline" aria-hidden="true">
+          {[
+            ["Year 1", "Marketplace MVP"],
+            ["Year 3", "Market intelligence"],
+            ["Year 5", "Unified network"],
+            ["Year 10", "Industry infrastructure"],
+          ].map(([year, label]) => (
+            <div className="manifesto-step" key={year}>
+              <span className="manifesto-year">{year}</span>
+              <span className="manifesto-label">{label}</span>
+            </div>
+          ))}
+        </div>
       </div>
 
       <div className="geometry-stage" aria-label="Interactive floating geometry">

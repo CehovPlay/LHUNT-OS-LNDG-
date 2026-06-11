@@ -4007,3 +4007,58 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* ============================================================
+   §9 Manifesto (inside the geometry section, over the shapes)
+   ============================================================ */
+.geometry-manifesto {
+  position: relative;
+  z-index: 5;
+  max-width: 640px;
+}
+
+.geometry-manifesto h2 {
+  font-size: clamp(30px, 3.6vw, 48px);
+  line-height: 1.1;
+  font-weight: var(--fw-semibold);
+  letter-spacing: -0.025em;
+  color: var(--text-primary);
+}
+
+.geometry-manifesto p {
+  margin: 0 0 var(--sp-4);
+  font-size: var(--text-lg2);
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+
+.manifesto-timeline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2) var(--sp-3);
+  margin-top: var(--sp-8);
+}
+
+.manifesto-step {
+  display: grid;
+  gap: 2px;
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--r-lg);
+  backdrop-filter: none;
+}
+
+.manifesto-year {
+  font-size: var(--text-xs2);
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.02em;
+  color: var(--brand-700);
+}
+
+.manifesto-label {
+  font-size: var(--text-sm2);
+  font-weight: var(--fw-medium);
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
