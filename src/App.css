@@ -1430,12 +1430,15 @@ body {
 }
 
 .audience-card {
-  min-height: 200px;
+  min-height: 220px;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   border: 1px solid rgba(255,255,255,0.12);
   border-radius: var(--radius-lg);
-  padding: 32px;
+  padding: 40px 32px;
   background:
     linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)),
     rgba(255,255,255,0.03);
@@ -2228,9 +2231,9 @@ body {
 
 .geometry-manifesto p {
   max-width: 820px;
-  margin: 0 0 var(--sp-6);
+  margin: 0 0 var(--sp-10);
   font-size: var(--text-lg2);
-  line-height: 1.6;
+  line-height: 1.65;
   color: var(--text-secondary);
 }
 
@@ -2423,7 +2426,7 @@ select.field-input {
 .site-footer-v2 {
   background: var(--bg-primary);
   border-top: 1px solid var(--border-secondary);
-  padding: var(--sp-20) var(--page-gutter) var(--sp-8);
+  padding: var(--sp-32) var(--page-gutter) var(--sp-12);
   color: var(--text-primary);
 }
 
@@ -2539,57 +2542,30 @@ select.field-input {
   overflow: hidden;
 }
 
-.ai-card-stack {
-  position: relative;
-  width: min(82%, 400px);
-}
-
-.ai-card-reasons {
+.ai-visual-svg {
   display: block;
   width: 100%;
+  max-width: 480px;
   height: auto;
-  filter: drop-shadow(0 18px 44px rgba(16, 24, 40, 0.12));
-}
-
-.ai-card-score {
-  position: absolute;
-  top: -8%;
-  left: -10%;
-  width: 38%;
-  height: auto;
-  z-index: 2;
-  filter: drop-shadow(0 12px 28px rgba(16, 24, 40, 0.18));
+  margin: 0 auto;
 }
 
 /* ============================================================
-   Vertical centering — full-height sections, content centered
-   (matches the Figma rhythm: each section ~100vh, content centered)
+   Section sizing — content-height, comfortable but not full-screen
    ============================================================ */
 .story-section,
 .integrations-section,
 .trust-metrics-section,
 .who-section,
 .problem-section {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  padding-top: var(--sp-24);
+  padding-bottom: var(--sp-24);
 }
 
-/* Built modular: centre the heading + carousel block in the viewport */
-.products-shell {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-/* Roadmap: drop the big top pad now that it's centered */
-.geometry-copy {
-  padding-top: 0;
-}
 .geometry-physics-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  min-height: auto;
+}
+.geometry-copy {
+  padding-top: var(--sp-16);
+  padding-bottom: var(--sp-16);
 }

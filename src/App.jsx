@@ -392,59 +392,23 @@ function HeroSequence() {
   );
 }
 
-const PARTNER_POOL = [
+const PARTNERS = [
   { name: "DAT", src: "/partners/dat.svg" },
   { name: "Truckstop", src: "/partners/truckstop.svg" },
   { name: "Direct Freight", src: "/partners/direct-freight.svg" },
   { name: "Sylectus", src: "/partners/sylectus.svg" },
   { name: "Samsara", src: "/partners/samsara.svg" },
   { name: "Motive", src: "/partners/motive.svg" },
-  { name: "Geotab", src: "/partners/geotab.svg" },
-  { name: "Omnitracs", src: "/partners/omnitracs.svg" },
 ];
-const PARTNER_SLOTS = 6;
 
 function PartnerStrip() {
-  // Pallet-style logo wall: each slot fades through the pool; the visible
-  // logos are always distinct (only an unused logo can rotate in).
-  const [slots, setSlots] = useState(() => PARTNER_POOL.slice(0, PARTNER_SLOTS));
-  const [fading, setFading] = useState(-1);
-
-  useEffect(() => {
-    let swapTimer;
-    const tick = () => {
-      const slot = Math.floor(Math.random() * PARTNER_SLOTS);
-      setFading(slot);
-      swapTimer = setTimeout(() => {
-        setSlots((prev) => {
-          const visible = new Set(prev.map((p) => p.name));
-          const avail = PARTNER_POOL.filter((p) => !visible.has(p.name));
-          if (!avail.length) return prev;
-          const next = [...prev];
-          next[slot] = avail[Math.floor(Math.random() * avail.length)];
-          return next;
-        });
-        setFading(-1);
-      }, 340);
-    };
-    const interval = setInterval(tick, 1700);
-    return () => {
-      clearInterval(interval);
-      clearTimeout(swapTimer);
-    };
-  }, []);
-
   return (
     <section className="partner-strip" aria-label="Industry partners">
       <p className="partner-strip-label">Building with industry partners</p>
       <div className="partner-strip-row">
-        {slots.map((partner, i) => (
-          <span className="partner-logo-slot" key={i}>
-            <img
-              className={`partner-logo-img ${fading === i ? "is-fading" : ""}`}
-              src={partner.src}
-              alt={partner.name}
-            />
+        {PARTNERS.map((partner) => (
+          <span className="partner-logo-slot" key={partner.name}>
+            <img className="partner-logo-img" src={partner.src} alt={partner.name} />
           </span>
         ))}
       </div>
@@ -1077,20 +1041,12 @@ function AiSection() {
         </div>
 
         <div className="ai-visual-img" aria-hidden="true">
-          <div className="ai-card-stack">
-            <img
-              className="ai-card-reasons"
-              src="/product-mockups/ai-card-reasons.png"
-              alt="AI load score rationale"
-              loading="lazy"
-            />
-            <img
-              className="ai-card-score"
-              src="/product-mockups/ai-card-score.png"
-              alt="AI load score 8.4 / 10"
-              loading="lazy"
-            />
-          </div>
+          <img
+            className="ai-visual-svg"
+            src="/ai-score.svg"
+            alt="AI load score with rationale"
+            loading="lazy"
+          />
         </div>
       </div>
     </section>
