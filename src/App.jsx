@@ -407,13 +407,12 @@ function HeroSequence() {
 }
 
 const PARTNERS = [
-  "DAT",
-  "Truckstop",
-  "Direct Freight",
-  "Sylectus",
-  "Samsara",
-  "Motive",
-  "FMCSA verified",
+  { name: "DAT", src: "/partners/dat.svg" },
+  { name: "Truckstop", src: "/partners/truckstop.svg" },
+  { name: "Direct Freight", src: "/partners/direct-freight.svg" },
+  { name: "Sylectus", src: "/partners/sylectus.svg" },
+  { name: "Samsara", src: "/partners/samsara.svg" },
+  { name: "Motive", src: "/partners/motive.svg" },
 ];
 
 function PartnerStrip() {
@@ -422,10 +421,15 @@ function PartnerStrip() {
       <p className="partner-strip-label">Building with industry partners</p>
       <div className="partner-strip-row">
         {PARTNERS.map((partner) => (
-          <span className="partner-logo" key={partner}>
-            {partner}
-          </span>
+          <img
+            className="partner-logo-img"
+            src={partner.src}
+            alt={partner.name}
+            key={partner.name}
+            loading="lazy"
+          />
         ))}
+        <span className="partner-logo-text">FMCSA verified</span>
       </div>
     </section>
   );
@@ -1099,10 +1103,34 @@ function AiSection() {
 }
 
 const INTEGRATION_GROUPS = [
-  { label: "Load boards we aggregate", items: ["DAT", "Truckstop", "Direct Freight", "Sylectus"] },
-  { label: "ELD providers we connect", items: ["Samsara", "Motive", "Geotab", "Omnitracs"] },
-  { label: "Coming with Accounting (Phase 5)", items: ["TBS Factoring", "OTR Capital", "Apex Capital", "Triumph Pay"] },
-  { label: "Compliance", items: ["FMCSA verified at registration"] },
+  {
+    label: "Load boards we aggregate",
+    items: [
+      { name: "DAT", src: "/partners/dat.svg" },
+      { name: "Truckstop", src: "/partners/truckstop.svg" },
+      { name: "Direct Freight", src: "/partners/direct-freight.svg" },
+      { name: "Sylectus", src: "/partners/sylectus.svg" },
+    ],
+  },
+  {
+    label: "ELD providers we connect",
+    items: [
+      { name: "Samsara", src: "/partners/samsara.svg" },
+      { name: "Motive", src: "/partners/motive.svg" },
+      { name: "Geotab", src: "/partners/geotab.svg" },
+      { name: "Omnitracs", src: "/partners/omnitracs.svg" },
+    ],
+  },
+  {
+    label: "Coming with Accounting (Phase 5)",
+    items: [
+      { name: "TBS Factoring" },
+      { name: "OTR Capital" },
+      { name: "Apex Capital" },
+      { name: "Triumph Pay" },
+    ],
+  },
+  { label: "Compliance", items: [{ name: "FMCSA verified at registration" }] },
 ];
 
 function IntegrationsSection() {
@@ -1122,11 +1150,21 @@ function IntegrationsSection() {
             <div className="integration-group" key={group.label}>
               <span className="integration-group-label">{group.label}</span>
               <div className="integration-logos">
-                {group.items.map((item) => (
-                  <span className="integration-logo" key={item}>
-                    {item}
-                  </span>
-                ))}
+                {group.items.map((item) =>
+                  item.src ? (
+                    <img
+                      className="integration-logo-img"
+                      src={item.src}
+                      alt={item.name}
+                      key={item.name}
+                      loading="lazy"
+                    />
+                  ) : (
+                    <span className="integration-logo" key={item.name}>
+                      {item.name}
+                    </span>
+                  )
+                )}
               </div>
             </div>
           ))}
