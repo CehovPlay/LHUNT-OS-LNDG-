@@ -1055,9 +1055,15 @@ function AiSection() {
 
         <div className="ai-visual-img" aria-hidden="true">
           <img
-            className="ai-visual-image"
-            src="/product-mockups/ai-score.png"
-            alt="AI load score with rationale"
+            className="ai-card-reasons"
+            src="/product-mockups/ai-card-reasons.png"
+            alt="AI load score rationale"
+            loading="lazy"
+          />
+          <img
+            className="ai-card-score"
+            src="/product-mockups/ai-card-score.png"
+            alt="AI load score 8.4 / 10"
             loading="lazy"
           />
         </div>
