@@ -3279,7 +3279,8 @@ body {
   display: inline-flex;
 }
 
-.navbar-logo svg {
+.navbar-logo svg,
+.navbar-logo-img {
   display: block;
   width: 24px;
   height: 24px;
@@ -3762,7 +3763,7 @@ body {
 }
 
 .story-copy-wide {
-  max-width: 760px;
+  max-width: 1180px;
 }
 
 /* §4 visual: five tools -> one */
@@ -4030,7 +4031,7 @@ body {
 .geometry-manifesto {
   position: relative;
   z-index: 5;
-  max-width: 640px;
+  max-width: 1180px;
 }
 
 .geometry-manifesto h2 {
@@ -4042,6 +4043,7 @@ body {
 }
 
 .geometry-manifesto p {
+  max-width: 820px;
   margin: 0 0 var(--sp-4);
   font-size: var(--text-lg2);
   line-height: 1.55;
@@ -4049,34 +4051,47 @@ body {
 }
 
 .manifesto-timeline {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--sp-2) var(--sp-3);
-  margin-top: var(--sp-8);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--sp-4);
+  margin-top: var(--sp-10);
 }
 
 .manifesto-step {
   display: grid;
-  gap: 2px;
-  padding: 10px 16px;
-  background: rgba(255, 255, 255, 0.7);
+  align-content: start;
+  gap: 8px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.72);
   border: 1px solid var(--border-secondary);
   border-radius: var(--r-lg);
-  backdrop-filter: none;
 }
 
 .manifesto-year {
   font-size: var(--text-xs2);
   font-weight: var(--fw-bold);
-  letter-spacing: 0.02em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   color: var(--brand-700);
 }
 
 .manifesto-label {
+  font-size: var(--text-lg2);
+  font-weight: var(--fw-semibold);
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+}
+
+.manifesto-detail {
   font-size: var(--text-sm2);
-  font-weight: var(--fw-medium);
-  color: var(--text-secondary);
-  white-space: nowrap;
+  line-height: 1.45;
+  color: var(--text-tertiary);
+}
+
+@media (max-width: 860px) {
+  .manifesto-timeline {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 /* ============================================================
@@ -4220,35 +4235,44 @@ select.field-input {
    §11 Footer — light, Pallet-style columns
    ============================================================ */
 .site-footer-v2 {
-  background: var(--bg-secondary);
+  background: var(--bg-primary);
   border-top: 1px solid var(--border-secondary);
-  padding: var(--sp-24) var(--page-gutter) var(--sp-10);
+  padding: var(--sp-20) var(--page-gutter) var(--sp-8);
   color: var(--text-primary);
 }
 
-.footer-grid {
+.footer-top {
   width: min(1180px, 100%);
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1.1fr 2fr;
-  gap: clamp(40px, 6vw, 96px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: clamp(40px, 6vw, 80px);
 }
 
-.footer-brand .navbar-brand {
-  margin-bottom: var(--sp-4);
+.footer-home-btn {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 16px;
+  border: 1px solid var(--border-primary);
+  border-radius: var(--r-md);
+  background: var(--bg-primary);
+  color: var(--text-secondary);
+  font-size: var(--text-sm2);
+  font-weight: var(--fw-semibold);
+  text-decoration: none;
+  box-shadow: var(--shadow-xs);
+  transition: background 160ms ease;
 }
-.footer-brand p {
-  margin: 0;
-  max-width: 280px;
-  font-size: var(--text-md2);
-  line-height: 1.5;
-  color: var(--text-tertiary);
+.footer-home-btn:hover {
+  background: var(--gray-50);
 }
 
 .footer-cols {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--sp-8);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(24px, 4vw, 64px);
 }
 
 .footer-col {
@@ -4267,6 +4291,7 @@ select.field-input {
   font-weight: var(--fw-medium);
   color: var(--text-secondary);
   text-decoration: none;
+  white-space: nowrap;
   transition: color 160ms ease;
 }
 .footer-col a:hover {
@@ -4279,36 +4304,22 @@ select.field-input {
   padding-top: var(--sp-6);
   border-top: 1px solid var(--border-secondary);
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: var(--sp-4);
+}
+.footer-copy {
   font-size: var(--text-sm2);
   color: var(--text-tertiary);
 }
-.footer-legal a,
-.footer-social a {
-  color: var(--text-tertiary);
-  text-decoration: none;
-  transition: color 160ms ease;
-}
-.footer-legal a:hover,
-.footer-social a:hover {
-  color: var(--text-primary);
-}
-.footer-social {
-  display: inline-flex;
-  gap: var(--sp-4);
-  font-weight: var(--fw-medium);
-}
 
 @media (max-width: 820px) {
-  .footer-grid {
-    grid-template-columns: 1fr;
+  .footer-top {
+    flex-direction: column;
     gap: var(--sp-10);
   }
-  .footer-bottom {
-    justify-content: flex-start;
+  .footer-cols {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -4343,4 +4354,24 @@ select.field-input {
   object-fit: contain;
   object-position: center;
   padding: clamp(16px, 2vw, 32px);
+}
+
+/* §7 AI visual — real Figma LoadScore image, fills column at text height */
+.ai-visual-img {
+  position: relative;
+  align-self: stretch;
+  min-height: 360px;
+  border-radius: var(--r-2xl);
+  overflow: hidden;
+  background: #0b0b0d;
+  box-shadow: var(--shadow-lg);
+}
+
+.ai-visual-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
 }

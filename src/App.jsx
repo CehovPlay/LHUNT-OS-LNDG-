@@ -67,20 +67,7 @@ function Header() {
     <header className={`navbar ${scrolled ? "is-scrolled" : ""}`}>
       <div className="navbar-inner">
         <a className="navbar-brand" href="#top" aria-label="huntOS home">
-          <span className="navbar-logo" aria-hidden="true">
-            <svg viewBox="0 0 28 28">
-              <rect width="28" height="28" rx="7" fill="#171717" />
-              <path
-                d="M14 4.4 L15.7 12.3 L23.6 14 L15.7 15.7 L14 23.6 L12.3 15.7 L4.4 14 L12.3 12.3 Z"
-                fill="#fff"
-              />
-              <circle cx="14" cy="14" r="1.7" fill="#171717" />
-              <circle cx="20.4" cy="7.6" r="0.9" fill="#fff" />
-              <circle cx="20.4" cy="20.4" r="0.9" fill="#fff" />
-              <circle cx="7.6" cy="20.4" r="0.9" fill="#fff" />
-              <circle cx="7.6" cy="7.6" r="0.9" fill="#fff" />
-            </svg>
-          </span>
+          <img className="navbar-logo-img" src="/huntos-icon.svg" alt="" aria-hidden="true" />
           <b>huntOS</b>
         </a>
 
@@ -1000,16 +987,37 @@ function GeometryPhysicsSection() {
           infrastructure for an industry that's overdue for it.
         </p>
 
-        <div className="manifesto-timeline" aria-hidden="true">
+        <div className="manifesto-timeline">
           {[
-            ["Year 1", "Marketplace MVP"],
-            ["Year 3", "Market intelligence"],
-            ["Year 5", "Unified network"],
-            ["Year 10", "Industry infrastructure"],
-          ].map(([year, label]) => (
-            <div className="manifesto-step" key={year}>
-              <span className="manifesto-year">{year}</span>
-              <span className="manifesto-label">{label}</span>
+            {
+              year: "Year 1",
+              label: "Marketplace MVP",
+              detail:
+                "A workspace for carriers — find loads, book them, run dispatch.",
+            },
+            {
+              year: "Year 3",
+              label: "Market intelligence",
+              detail:
+                "Real-time, lane- and broker-specific freight data — sold standalone.",
+            },
+            {
+              year: "Year 5",
+              label: "Unified network",
+              detail:
+                "Carriers, brokers, factoring, ELD and insurance on one substrate.",
+            },
+            {
+              year: "Year 10",
+              label: "Industry infrastructure",
+              detail:
+                "The operational backbone an overdue industry finally runs on.",
+            },
+          ].map((step) => (
+            <div className="manifesto-step" key={step.year}>
+              <span className="manifesto-year">{step.year}</span>
+              <span className="manifesto-label">{step.label}</span>
+              <span className="manifesto-detail">{step.detail}</span>
             </div>
           ))}
         </div>
@@ -1071,21 +1079,13 @@ function AiSection() {
           </p>
         </div>
 
-        <div className="ai-visual" aria-hidden="true">
-          <div className="ai-load-card">
-            <div className="ai-load-route">
-              <strong>Chicago, IL → Dallas, TX</strong>
-              <span>Dry Van · 1,002 mi · $2.84 / mi</span>
-            </div>
-            <div className="ai-score">
-              <span className="ai-score-num">8.4</span>
-              <span className="ai-score-max">/ 10</span>
-              <span className="ai-score-tag">AI LoadScore</span>
-            </div>
-          </div>
-          <div className="ai-tooltip">
-            High RPM · your preferred lane · reliable broker
-          </div>
+        <div className="ai-visual-img" aria-hidden="true">
+          <img
+            className="ai-visual-image"
+            src="/product-mockups/ai-score.png"
+            alt="AI load score with rationale"
+            loading="lazy"
+          />
         </div>
       </div>
     </section>
@@ -1262,27 +1262,12 @@ function FinalCTASection() {
 function Footer() {
   return (
     <footer id="contact" className="site-footer-v2">
-      <div className="footer-grid">
-        <div className="footer-brand">
-          <a className="navbar-brand" href="#top" aria-label="huntOS home">
-            <span className="navbar-logo" aria-hidden="true">
-              <svg viewBox="0 0 28 28">
-                <rect width="28" height="28" rx="7" fill="#171717" />
-                <path
-                  d="M14 4.4 L15.7 12.3 L23.6 14 L15.7 15.7 L14 23.6 L12.3 15.7 L4.4 14 L12.3 12.3 Z"
-                  fill="#fff"
-                />
-                <circle cx="14" cy="14" r="1.7" fill="#171717" />
-              </svg>
-            </span>
-            <b>huntOS</b>
-          </a>
-          <p>Infrastructure for modern carrier operations.</p>
-        </div>
+      <div className="footer-top">
+        <a className="footer-home-btn" href="#top">Back to home page</a>
 
         <div className="footer-cols">
           <div className="footer-col">
-            <span className="footer-col-title">Products</span>
+            <span className="footer-col-title">Product</span>
             <a href="#products">Marketplace</a>
             <a href="#products">TMS for Carriers</a>
             <a href="#products">TMS for Brokers</a>
@@ -1291,29 +1276,31 @@ function Footer() {
             <a href="#products">$LHUNT</a>
           </div>
           <div className="footer-col">
-            <span className="footer-col-title">Resources</span>
-            <a href="#articles">Articles</a>
-            <a href="#articles">Press kit</a>
+            <span className="footer-col-title">Solutions</span>
+            <a href="#solutions">For Carriers</a>
+            <a href="#solutions">For Brokers</a>
+            <a href="#solutions">For Partners</a>
           </div>
           <div className="footer-col">
             <span className="footer-col-title">Company</span>
-            <a href="#contact">About</a>
+            <a href="#contact">About us</a>
             <a href="#contact">Careers</a>
-            <a href="#waitlist">Contact</a>
+            <a href="#articles">Articles</a>
+          </div>
+          <div className="footer-col">
+            <span className="footer-col-title">Terms &amp; Policies</span>
+            <a href="#">Terms of service</a>
+            <a href="#">Privacy policy</a>
           </div>
         </div>
       </div>
 
       <div className="footer-bottom">
-        <span>© 2026 Loadhunt</span>
-        <span className="footer-legal">
-          <a href="#">Terms</a> · <a href="#">Privacy</a> ·{" "}
-          <a href="#">Cookie policy</a>
-        </span>
-        <span className="footer-social">
-          <a href="#">LinkedIn</a>
-          <a href="#">X</a>
-        </span>
+        <a className="navbar-brand" href="#top" aria-label="huntOS home">
+          <img className="navbar-logo-img" src="/huntos-icon.svg" alt="" aria-hidden="true" />
+          <b>huntOS</b>
+        </a>
+        <span className="footer-copy">© 2026 huntOS.</span>
       </div>
     </footer>
   );
