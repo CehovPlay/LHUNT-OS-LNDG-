@@ -1069,27 +1069,25 @@ export default function App() {
           item,
           {
             opacity: 0,
-            y: 44,
-            rotateX: 8,
-            filter: "blur(14px)",
-            clipPath: "inset(0 0 100% 0)",
+            y: 32,
             transformOrigin: "50% 100%",
           },
           {
+            // Only opacity + transform here — these are GPU-composited and
+            // cheap. The previous blur()/clipPath animation repainted every
+            // frame on every text node and was the main cause of scroll jank.
             opacity: 1,
             y: 0,
-            rotateX: 0,
-            filter: "blur(0px)",
-            clipPath: "inset(0 0 0% 0)",
-            duration: 0.9,
+            duration: 0.7,
             delay: Math.min((index % 4) * 0.035, 0.12),
-            ease: "power4.out",
+            ease: "power3.out",
             scrollTrigger: {
               trigger: item,
               start: "top 88%",
-              end: "bottom 18%",
-              toggleActions: "play none none reverse",
-              once: false,
+              // play once and stop reacting to scroll — no repeated
+              // forward/reverse work as the user scrolls back and forth.
+              toggleActions: "play none none none",
+              once: true,
             },
           }
         );
