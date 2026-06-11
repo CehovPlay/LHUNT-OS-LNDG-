@@ -63,53 +63,20 @@ function Header() {
   }, []);
 
   const productLinks = [
-    {
-      name: "loadhunter",
-      label: "AI Browser Extension",
-      description: "Automation, broker context, maps, RPM, and faster loadboard actions.",
-      status: "Live",
-    },
-    {
-      name: "huntTMS",
-      label: "Carrier TMS",
-      description: "Loads, drivers, documents, invoices, expenses, payroll, and reports.",
-      status: "MVP",
-    },
-    {
-      name: "huntPAY",
-      label: "Payments",
-      description: "Invoices, driver settlements, tolls, fuel expenses, and payment workflow.",
-      status: "Soon",
-    },
-    {
-      name: "huntDRIVE",
-      label: "Driver App",
-      description: "Driver-side route, documents, HOS context, and mobile workflow layer.",
-      status: "Soon",
-    },
+    { name: "Marketplace", description: "Every load source, one feed" },
+    { name: "TMS for Carriers", description: "Drivers, trucks, dispatch" },
+    { name: "TMS for Brokers", description: "Direct posting & matching", status: "Coming soon" },
+    { name: "Live Tracking", description: "ELD-powered fleet visibility" },
+    { name: "Accounting", description: "Invoices, settlements, factoring" },
+    { name: "$LHUNT", description: "The token aligning the network" },
   ];
 
-  const resourceLinks = [
-    {
-      title: "Who it is for",
-      href: "#who",
-      description: "Carriers, dispatchers, and brokers.",
-    },
-    {
-      title: "Trust metrics",
-      href: "#trust",
-      description: "Usage, production timeline, and growth context.",
-    },
-    {
-      title: "Motion system",
-      href: "#motion",
-      description: "A visual layer showing responsive freight operations.",
-    },
-    {
-      title: "Contact",
-      href: "#contact",
-      description: "Book a demo or join early access.",
-    },
+  // TODO: placeholder content — replace with real Solutions items
+  const solutionLinks = [
+    { name: "For Carriers", description: "Run your fleet end to end" },
+    { name: "For Brokers", description: "Post, match, and move loads" },
+    { name: "For Dispatchers", description: "Book faster across boards" },
+    { name: "For Owner-Operators", description: "One app for the whole job" },
   ];
 
   return (
@@ -120,8 +87,6 @@ function Header() {
         </a>
 
         <nav className="site-nav" aria-label="Main navigation">
-          <a href="#problem">Problem</a>
-
           <div className="nav-dropdown-wrap">
             <a href="#products" className="nav-dropdown-trigger">
               Products
@@ -131,18 +96,15 @@ function Header() {
             <div className="nav-mega-panel nav-mega-products">
               <div className="mega-feature-card">
                 <span>Products</span>
-                <h3>Connected freight tools for the whole workflow.</h3>
-                <p>One ecosystem from load search and dispatch actions to TMS, driver workflow, and payments.</p>
+                <h3>Everything to move freight, in one place.</h3>
+                <p>From the load marketplace to TMS, tracking, accounting, and the $LHUNT network.</p>
               </div>
 
               <div className="mega-grid">
                 {productLinks.map((product) => (
                   <a href="#products" key={product.name} className="mega-product-link">
-                    <span>
-                      <b>{product.name}</b>
-                      <small>{product.label}</small>
-                    </span>
-                    <em>{product.status}</em>
+                    <b>{product.name}</b>
+                    {product.status && <em>{product.status}</em>}
                     <p>{product.description}</p>
                   </a>
                 ))}
@@ -151,36 +113,36 @@ function Header() {
           </div>
 
           <div className="nav-dropdown-wrap">
-            <a href="#trust" className="nav-dropdown-trigger">
-              Resources
+            <a href="#products" className="nav-dropdown-trigger">
+              Solutions
               <span>⌄</span>
             </a>
 
-            <div className="nav-mega-panel nav-mega-resources">
+            <div className="nav-mega-panel nav-mega-products">
               <div className="mega-feature-card">
-                <span>Resources</span>
-                <h3>Explore the operating layer.</h3>
-                <p>Jump into proof, audience, product, motion, and contact sections without losing context.</p>
+                <span>Solutions</span>
+                <h3>Built for everyone moving freight.</h3>
+                <p>One operating layer for carriers, brokers, dispatchers, and owner-operators.</p>
               </div>
 
-              <div className="mega-resource-grid">
-                {resourceLinks.map((resource) => (
-                  <a href={resource.href} key={resource.title} className="mega-resource-link">
-                    <b>{resource.title}</b>
-                    <p>{resource.description}</p>
+              <div className="mega-grid">
+                {solutionLinks.map((solution) => (
+                  <a href="#products" key={solution.name} className="mega-product-link">
+                    <b>{solution.name}</b>
+                    {solution.status && <em>{solution.status}</em>}
+                    <p>{solution.description}</p>
                   </a>
                 ))}
               </div>
             </div>
           </div>
 
-          <a href="#products">Pricing</a>
-          <a href="#contact">Enterprise</a>
+          <a href="#articles">Articles</a>
+          <a href="#contact">Company</a>
         </nav>
 
         <div className="nav-actions">
-          <a className="header-secondary" href="#contact">Sign in</a>
-          <a className="header-cta" href="#products">Get started</a>
+          <a className="header-cta" href="#contact">Join waitlist</a>
         </div>
 
         <button
@@ -195,10 +157,11 @@ function Header() {
       </div>
 
       <div className={`mobile-nav-panel ${mobileOpen ? "is-open" : ""}`}>
-        <a href="#problem" onClick={() => setMobileOpen(false)}>Problem</a>
-        <a href="#trust" onClick={() => setMobileOpen(false)}>Resources</a>
         <a href="#products" onClick={() => setMobileOpen(false)}>Products</a>
-        <a href="#contact" onClick={() => setMobileOpen(false)}>Contact</a>
+        <a href="#products" onClick={() => setMobileOpen(false)}>Solutions</a>
+        <a href="#articles" onClick={() => setMobileOpen(false)}>Articles</a>
+        <a href="#contact" onClick={() => setMobileOpen(false)}>Company</a>
+        <a href="#contact" onClick={() => setMobileOpen(false)}>Join waitlist</a>
       </div>
     </header>
   );
