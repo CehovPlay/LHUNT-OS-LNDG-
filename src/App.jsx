@@ -856,12 +856,18 @@ function GeometryPhysicsSection() {
       const updatePositions = (progress = 0) => {
         const now = performance.now();
 
+        // ≥1920px: keep content width fixed and stop the decorative field from
+        // spreading to the screen edges — freeze it to a 1920-wide canvas,
+        // centered, so the shapes stay anchored to the (centered) content.
+        const fieldWidth = Math.min(viewportWidth, 1920);
+        const fieldOffsetX = (viewportWidth - fieldWidth) / 2;
+
         shapes.forEach((shape, index) => {
           const element = shapeRefs.current[index];
           if (!element) return;
 
           const phase = index * 0.72;
-          const baseX = viewportWidth * shape.x;
+          const baseX = fieldOffsetX + fieldWidth * shape.x;
           const baseY = sectionHeight * shape.y;
           const scrollX = Math.sin(progress * Math.PI * 2 + phase) * shape.drift;
           const scrollY = Math.cos(progress * Math.PI * 1.7 + phase) * (shape.drift * 0.58);
