@@ -1244,22 +1244,59 @@ function FinalCTASection() {
 
 function Footer() {
   return (
-    <footer id="contact" className="site-footer">
-      <RippleBackground />
-
-      <div className="footer-inner">
-        <div>
-          <span className="section-index">08 / Contact</span>
-          <h2>Move freight with one connected operating layer.</h2>
+    <footer id="contact" className="site-footer-v2">
+      <div className="footer-grid">
+        <div className="footer-brand">
+          <a className="navbar-brand" href="#top" aria-label="huntOS home">
+            <span className="navbar-logo" aria-hidden="true">
+              <svg viewBox="0 0 28 28">
+                <rect width="28" height="28" rx="7" fill="#171717" />
+                <path
+                  d="M14 4.4 L15.7 12.3 L23.6 14 L15.7 15.7 L14 23.6 L12.3 15.7 L4.4 14 L12.3 12.3 Z"
+                  fill="#fff"
+                />
+                <circle cx="14" cy="14" r="1.7" fill="#171717" />
+              </svg>
+            </span>
+            <b>huntOS</b>
+          </a>
+          <p>Infrastructure for modern carrier operations.</p>
         </div>
 
-        <div className="footer-links">
-          <a href="#top">Back to top</a>
-          <a href="#products">Products</a>
-          <a href="mailto:hello@loadhunt.com">hello@loadhunt.com</a>
+        <div className="footer-cols">
+          <div className="footer-col">
+            <span className="footer-col-title">Products</span>
+            <a href="#products">Marketplace</a>
+            <a href="#products">TMS for Carriers</a>
+            <a href="#products">TMS for Brokers</a>
+            <a href="#products">Live Tracking</a>
+            <a href="#products">Accounting</a>
+            <a href="#products">$LHUNT</a>
+          </div>
+          <div className="footer-col">
+            <span className="footer-col-title">Resources</span>
+            <a href="#articles">Articles</a>
+            <a href="#articles">Press kit</a>
+          </div>
+          <div className="footer-col">
+            <span className="footer-col-title">Company</span>
+            <a href="#contact">About</a>
+            <a href="#contact">Careers</a>
+            <a href="#waitlist">Contact</a>
+          </div>
         </div>
+      </div>
 
-        <p>© 2026 Loadhunt. Built for modern freight teams.</p>
+      <div className="footer-bottom">
+        <span>© 2026 Loadhunt</span>
+        <span className="footer-legal">
+          <a href="#">Terms</a> · <a href="#">Privacy</a> ·{" "}
+          <a href="#">Cookie policy</a>
+        </span>
+        <span className="footer-social">
+          <a href="#">LinkedIn</a>
+          <a href="#">X</a>
+        </span>
       </div>
     </footer>
   );
