@@ -560,7 +560,7 @@ const PRODUCTS = [
       "Every load source — DAT, Truckstop, Direct Freight, broker-direct — in one normalized feed, scored by AI for your lanes.",
     link: "Explore Marketplace",
     href: "#waitlist",
-    mockup: "dashboard",
+    mockup: "marketplace",
   },
   {
     name: "TMS for Carriers",
@@ -569,7 +569,7 @@ const PRODUCTS = [
       "Drivers, trucks, trailers, assignments. Your fleet operations inside the same workspace.",
     link: "Explore TMS",
     href: "#waitlist",
-    mockup: "calendar",
+    mockup: "tms-carriers",
   },
   {
     name: "Live Tracking",
@@ -578,7 +578,7 @@ const PRODUCTS = [
       "Fleet visibility powered by Samsara, Motive, and other ELD providers. See every truck, every shipment, every HOS clock.",
     link: "Explore Tracking",
     href: "#waitlist",
-    mockup: "map",
+    mockup: "live-tracking",
   },
   {
     name: "Accounting",
@@ -587,7 +587,7 @@ const PRODUCTS = [
       "Generate invoices from completed loads. Track broker payments. Connect factoring partners. Money flow where load flow lives.",
     link: "Explore Accounting",
     href: "#waitlist",
-    mockup: "payments",
+    mockup: "accounting",
   },
   {
     name: "TMS for Brokers",
@@ -597,7 +597,7 @@ const PRODUCTS = [
     badge: "Coming soon",
     link: "Join broker waitlist",
     href: "#waitlist",
-    mockup: "search",
+    mockup: "tms-brokers",
   },
   {
     name: "$LHUNT",
@@ -606,7 +606,7 @@ const PRODUCTS = [
       "The token aligning carriers, brokers, and the platform. Part of how Loadhunt scales an open freight economy.",
     link: "Learn more",
     href: "#waitlist",
-    mockup: "drive",
+    mockup: "marketplace",
   },
 ];
 
