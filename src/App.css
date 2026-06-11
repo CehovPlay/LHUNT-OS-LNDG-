@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+@import url("https://api.fontshare.com/v2/css?f[]=satoshi@700&display=swap");
 
 * {
   box-sizing: border-box;
@@ -3144,23 +3145,21 @@ body {
   right: 0;
   z-index: 3000;
   background: #ffffff;
-  border-bottom: 1px solid #ececec;
+  border-bottom: 1px solid #d9d9d9;
   transition: box-shadow 220ms ease, border-color 220ms ease;
 }
 
 .navbar.is-scrolled {
-  border-bottom-color: transparent;
-  box-shadow: 0 1px 0 rgba(17, 20, 24, 0.05), 0 10px 28px rgba(17, 20, 24, 0.06);
+  box-shadow: 0 1px 0 rgba(17, 20, 24, 0.04), 0 10px 28px rgba(17, 20, 24, 0.05);
 }
 
 .navbar-inner {
-  width: min(1440px, 100%);
-  margin: 0 auto;
-  height: 64px;
+  width: 100%;
+  height: 63px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 clamp(20px, 4vw, 48px);
+  padding: 0 clamp(20px, 2vw, 40px);
 }
 
 .navbar-brand {
@@ -3176,46 +3175,48 @@ body {
 
 .navbar-logo svg {
   display: block;
-  width: 26px;
-  height: 26px;
+  width: 24px;
+  height: 24px;
 }
 
 .navbar-brand b {
-  color: #14171a;
+  color: #171717;
+  font-family: "Satoshi", "Inter", sans-serif;
   font-size: 20px;
-  font-weight: var(--weight-bold);
-  letter-spacing: -0.02em;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
 }
 
 .navbar-menu {
   display: flex;
   align-items: center;
-  gap: clamp(20px, 2.4vw, 40px);
+  gap: 32px;
 }
 
 .navbar-link {
   position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  color: #4a4f56;
-  font-size: 15px;
+  gap: 6px;
+  color: #6d6d6c;
+  font-size: 14px;
+  line-height: 16px;
   font-weight: var(--weight-medium);
-  letter-spacing: -0.01em;
+  letter-spacing: -0.04em;
   text-decoration: none;
   cursor: pointer;
   transition: color 160ms ease;
 }
 
 .navbar-link:hover {
-  color: #14171a;
+  color: #171717;
 }
 
 .navbar-caret {
-  width: 11px;
-  height: 11px;
-  opacity: 0.65;
-  transition: transform 220ms ease, opacity 160ms ease;
+  width: 10px;
+  height: 10px;
+  transition: transform 220ms ease;
 }
 
 .navbar-dd {

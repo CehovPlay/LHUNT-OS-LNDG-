@@ -69,12 +69,12 @@ function Header() {
         <a className="navbar-brand" href="#top" aria-label="huntOS home">
           <span className="navbar-logo" aria-hidden="true">
             <svg viewBox="0 0 28 28">
-              <rect width="28" height="28" rx="7" fill="#14171a" />
+              <rect width="28" height="28" rx="7" fill="#171717" />
               <path
                 d="M14 4.4 L15.7 12.3 L23.6 14 L15.7 15.7 L14 23.6 L12.3 15.7 L4.4 14 L12.3 12.3 Z"
                 fill="#fff"
               />
-              <circle cx="14" cy="14" r="1.7" fill="#14171a" />
+              <circle cx="14" cy="14" r="1.7" fill="#171717" />
               <circle cx="20.4" cy="7.6" r="0.9" fill="#fff" />
               <circle cx="20.4" cy="20.4" r="0.9" fill="#fff" />
               <circle cx="7.6" cy="20.4" r="0.9" fill="#fff" />
