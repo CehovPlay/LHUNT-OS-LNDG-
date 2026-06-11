@@ -1033,6 +1033,94 @@ function RippleBackground() {
   );
 }
 
+function AiSection() {
+  return (
+    <section className="story-section ai-section">
+      <div className="story-inner">
+        <div className="story-copy">
+          <h2 className="story-title">AI that learns your operation.</h2>
+          <p>
+            Every load you save, every broker you work with, every lane you
+            favor — Loadhunt's AI learns from it. The result is a workspace that
+            gets smarter the longer you use it.
+          </p>
+          <p>
+            The Marketplace doesn't show you every load. It shows you the ones
+            that match — by RPM, by lane, by broker reliability, by equipment
+            fit. Your dispatcher stops scrolling. They start picking.
+          </p>
+          <p>
+            Over time, the same data becomes something bigger: a real-time map of
+            the freight market. Where rates are heading. Which brokers actually
+            pay. Which lanes are heating up. Built from operations, not from
+            surveys.
+          </p>
+        </div>
+
+        <div className="ai-visual" aria-hidden="true">
+          <div className="ai-load-card">
+            <div className="ai-load-route">
+              <strong>Chicago, IL → Dallas, TX</strong>
+              <span>Dry Van · 1,002 mi · $2.84 / mi</span>
+            </div>
+            <div className="ai-score">
+              <span className="ai-score-num">8.4</span>
+              <span className="ai-score-max">/ 10</span>
+              <span className="ai-score-tag">AI LoadScore</span>
+            </div>
+          </div>
+          <div className="ai-tooltip">
+            High RPM · your preferred lane · reliable broker
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+const INTEGRATION_GROUPS = [
+  { label: "Load boards we aggregate", items: ["DAT", "Truckstop", "Direct Freight", "Sylectus"] },
+  { label: "ELD providers we connect", items: ["Samsara", "Motive", "Geotab", "Omnitracs"] },
+  { label: "Coming with Accounting (Phase 5)", items: ["TBS Factoring", "OTR Capital", "Apex Capital", "Triumph Pay"] },
+  { label: "Compliance", items: ["FMCSA verified at registration"] },
+];
+
+function IntegrationsSection() {
+  return (
+    <section className="integrations-section">
+      <div className="integrations-inner">
+        <div className="integrations-head">
+          <h2 className="story-title">Built with the industry.</h2>
+          <p>
+            We work with the platforms carriers already trust — and verify
+            everyone through FMCSA.
+          </p>
+        </div>
+
+        <div className="integration-groups">
+          {INTEGRATION_GROUPS.map((group) => (
+            <div className="integration-group" key={group.label}>
+              <span className="integration-group-label">{group.label}</span>
+              <div className="integration-logos">
+                {group.items.map((item) => (
+                  <span className="integration-logo" key={item}>
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <p className="integrations-note">
+          Partnership status varies. Some integrations are live. Others are in
+          roadmap.
+        </p>
+      </div>
+    </section>
+  );
+}
+
 function FinalCTASection() {
   return (
     <section id="waitlist" className="final-cta-section">
@@ -1132,6 +1220,8 @@ export default function App() {
         <TrustMetricsSection />
         <WhoForSection />
         <ProductsSection />
+        <AiSection />
+        <IntegrationsSection />
         <VideoStatementSection />
         <GeometryPhysicsSection />
         <FinalCTASection />
