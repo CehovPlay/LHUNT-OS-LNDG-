@@ -49,7 +49,7 @@ export default function MarketplacePage() {
         heading={<>Every load source. One feed.<br />AI-scored for you.</>}
         subheading="Stop juggling DAT, Truckstop, Direct Freight, and broker emails. Loadhunt brings every load you have access to into one normalized feed — scored against your lanes, your equipment, your preferences."
         primaryCta={{ label: 'Join waitlist', href: '#waitlist' }}
-        secondaryCta={{ label: 'See it in the demo', href: '#' }}
+        secondaryCta={{ label: 'See it in the demo', href: 'https://platform.loadhunt.ai' }}
         image={{ src: '/assets/marketplace/hero-feed.png', alt: '' }}
       />
 
