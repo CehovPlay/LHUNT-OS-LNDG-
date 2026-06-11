@@ -797,11 +797,10 @@ function ProductSlide({ product, index, total }) {
     >
       <div className="product-slide-content">
         <div>
-          <span className="product-eyebrow">
-            <i /> {product.eyebrow}
+          <h3>
+            {product.name}
             {product.badge && <em className="product-badge">{product.badge}</em>}
-          </span>
-          <h3>{product.name}</h3>
+          </h3>
           <p>{product.description}</p>
         </div>
 
@@ -809,15 +808,6 @@ function ProductSlide({ product, index, total }) {
           <a className="product-link" href={product.href}>
             {product.link} <span aria-hidden="true">→</span>
           </a>
-
-          <div className="product-progress">
-            <strong>{String(index + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}</strong>
-            <div className="product-progress-bars">
-              {Array.from({ length: total }).map((_, progressIndex) => (
-                <span key={progressIndex} className={progressIndex === index ? "is-active" : ""} />
-              ))}
-            </div>
-          </div>
         </div>
       </div>
 
