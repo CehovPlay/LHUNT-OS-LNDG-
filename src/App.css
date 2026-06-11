@@ -4419,3 +4419,37 @@ select.field-input {
   object-fit: contain;
   object-position: center;
 }
+
+/* ============================================================
+   Vertical centering — full-height sections, content centered
+   (matches the Figma rhythm: each section ~100vh, content centered)
+   ============================================================ */
+.story-section,
+.integrations-section,
+.trust-metrics-section,
+.who-section,
+.problem-section,
+.waitlist-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Built modular: centre the heading + carousel block in the viewport */
+.products-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Roadmap: drop the big top pad now that it's centered */
+.geometry-copy {
+  padding-top: 0;
+}
+.geometry-physics-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
