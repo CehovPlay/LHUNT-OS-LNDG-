@@ -1204,6 +1204,109 @@ main {
   --leading-relaxed: 1.55;  /* long paragraphs */
 }
 
+/* ============================================================
+   UNTITLED UI — design system primitives + semantic tokens
+   Foundation for the light-theme migration. Additive: nothing
+   uses these until components are migrated onto them.
+   ============================================================ */
+:root {
+  /* ---- Gray ramp ---- */
+  --gray-25:  #fcfcfd;
+  --gray-50:  #f9fafb;
+  --gray-100: #f2f4f7;
+  --gray-200: #eaecf0;
+  --gray-300: #d0d5dd;
+  --gray-400: #98a2b3;
+  --gray-500: #667085;
+  --gray-600: #475467;
+  --gray-700: #344054;
+  --gray-800: #1d2939;
+  --gray-900: #101828;
+  --gray-950: #0c111d;
+
+  /* ---- Brand / primary (purple) ---- */
+  --brand-25:  #fcfaff;
+  --brand-50:  #f9f5ff;
+  --brand-100: #f4ebff;
+  --brand-200: #e9d7fe;
+  --brand-300: #d6bbfb;
+  --brand-400: #b692f6;
+  --brand-500: #9e77ed;
+  --brand-600: #7f56d9;  /* primary action */
+  --brand-700: #6941c6;
+  --brand-800: #53389e;
+  --brand-900: #42307d;
+  --brand-950: #2c1c5f;
+
+  /* ---- Supporting ---- */
+  --error-500:   #f04438;
+  --error-600:   #d92d20;
+  --warning-500: #f79009;
+  --success-500: #17b26a;
+  --success-600: #079455;
+
+  /* ---- Semantic (light theme) ---- */
+  --bg-primary:       #ffffff;
+  --bg-secondary:     var(--gray-50);
+  --bg-tertiary:      var(--gray-100);
+  --bg-brand:         var(--brand-600);
+  --border-primary:   var(--gray-300);
+  --border-secondary: var(--gray-200);
+  --text-primary:     var(--gray-900);
+  --text-secondary:   var(--gray-700);
+  --text-tertiary:    var(--gray-500);
+  --text-placeholder: var(--gray-400);
+  --text-on-brand:    #ffffff;
+  --text-brand:       var(--brand-700);
+  --focus-ring:       var(--brand-500);
+
+  /* ---- Type scale (Untitled UI) — size / line-height ---- */
+  --display-2xl: 72px;  --display-2xl-lh: 90px;
+  --display-xl:  60px;  --display-xl-lh:  72px;
+  --display-lg2: 48px;  --display-lg2-lh: 60px;
+  --display-md2: 36px;  --display-md2-lh: 44px;
+  --display-sm2: 30px;  --display-sm2-lh: 38px;
+  --display-xs2: 24px;  --display-xs2-lh: 32px;
+  --text-xl2:    20px;  --text-xl2-lh:    30px;
+  --text-lg2:    18px;  --text-lg2-lh:    28px;
+  --text-md2:    16px;  --text-md2-lh:    24px;
+  --text-sm2:    14px;  --text-sm2-lh:    20px;
+  --text-xs2:    12px;  --text-xs2-lh:    18px;
+  --tracking-display-uui: -0.02em;  /* UUI display tracking (apply during type migration) */
+
+  /* ---- Weights ---- */
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  /* ---- Spacing (4px base) ---- */
+  --sp-0-5: 2px;  --sp-1: 4px;   --sp-1-5: 6px;  --sp-2: 8px;
+  --sp-3: 12px;   --sp-4: 16px;  --sp-5: 20px;   --sp-6: 24px;
+  --sp-8: 32px;   --sp-10: 40px; --sp-12: 48px;  --sp-16: 64px;
+  --sp-20: 80px;  --sp-24: 96px; --sp-32: 128px; --sp-40: 160px;
+
+  /* ---- Radius (Untitled UI) ---- */
+  --r-xs:  4px;
+  --r-sm:  6px;
+  --r-md:  8px;
+  --r-lg:  10px;
+  --r-xl:  12px;
+  --r-2xl: 16px;
+  --r-3xl: 20px;
+  --r-4xl: 24px;
+  --r-full: 9999px;
+
+  /* ---- Shadows (Untitled UI) ---- */
+  --shadow-xs: 0 1px 2px rgba(16,24,40,0.05);
+  --shadow-sm: 0 1px 3px rgba(16,24,40,0.10), 0 1px 2px rgba(16,24,40,0.06);
+  --shadow-md: 0 4px 8px -2px rgba(16,24,40,0.10), 0 2px 4px -2px rgba(16,24,40,0.06);
+  --shadow-lg: 0 12px 16px -4px rgba(16,24,40,0.08), 0 4px 6px -2px rgba(16,24,40,0.03);
+  --shadow-xl: 0 20px 24px -4px rgba(16,24,40,0.08), 0 8px 8px -4px rgba(16,24,40,0.03);
+  --shadow-2xl: 0 24px 48px -12px rgba(16,24,40,0.18);
+  --shadow-3xl: 0 32px 64px -12px rgba(16,24,40,0.14);
+}
+
 body {
   letter-spacing: var(--tracking-snug);
 }
