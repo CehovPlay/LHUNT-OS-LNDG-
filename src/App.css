@@ -1512,16 +1512,17 @@ body {
 
 .product-slide-content h3 {
   max-width: 560px;
-  font-size: var(--display-md);
+  font-size: clamp(28px, 2.6vw, 38px);
+  font-weight: var(--weight-semibold);
   line-height: var(--leading-tight);
-  letter-spacing: var(--tracking-display);
+  letter-spacing: var(--tracking-tight);
 }
 
 .product-slide-content p {
-  max-width: 540px;
-  margin-top: 26px;
+  max-width: 480px;
+  margin-top: 18px;
   color: rgba(17, 24, 39, 0.62);
-  font-size: clamp(16px, 1.13vw, 18px);
+  font-size: var(--text-lg2);
   line-height: var(--leading-relaxed);
 }
 
@@ -4320,4 +4321,26 @@ select.field-input {
 .story-inner-stack .story-title {
   white-space: nowrap;
   max-width: none;
+}
+
+/* §4 unify diagram — fills the right column at the text block's height */
+.story-visual-diagram {
+  position: relative;
+  align-self: stretch;
+  min-height: 360px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--r-2xl);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.story-diagram-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  padding: clamp(16px, 2vw, 32px);
 }

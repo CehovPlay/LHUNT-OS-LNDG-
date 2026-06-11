@@ -455,16 +455,13 @@ function OneWorkspaceSection() {
           </p>
         </div>
 
-        <div className="story-visual" aria-hidden="true">
-          <div className="ws-tools">
-            {["DAT", "Samsara", "QuickBooks", "Excel", "Email / phone"].map((tool) => (
-              <span className="ws-tool" key={tool}>
-                {tool}
-              </span>
-            ))}
-          </div>
-          <span className="ws-arrow">→</span>
-          <div className="ws-one">Loadhunt</div>
+        <div className="story-visual-diagram" aria-hidden="true">
+          <img
+            className="story-diagram-img"
+            src="/product-mockups/unify-diagram.png"
+            alt="Five load sources unified into one feed"
+            loading="lazy"
+          />
         </div>
       </div>
     </section>
