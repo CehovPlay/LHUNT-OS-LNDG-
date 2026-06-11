@@ -2601,7 +2601,7 @@ body {
 
 .trust-inner,
 .who-inner {
-  width: min(var(--content-width), 100%);
+  width: min(1180px, 100%);
   margin: 0 auto;
 }
 
@@ -3685,7 +3685,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: clamp(24px, 4vw, 56px);
-  max-width: 1100px;
+  max-width: 1180px;
   margin: 0 auto;
 }
 
@@ -3733,8 +3733,8 @@ body {
 
 .story-inner-stack {
   grid-template-columns: 1fr;
-  justify-items: center;
-  text-align: center;
+  justify-items: start;
+  text-align: left;
   gap: var(--sp-16);
 }
 
@@ -3815,10 +3815,9 @@ body {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: var(--sp-3) var(--sp-2);
   width: 100%;
-  max-width: 980px;
 }
 
 .os-step {
@@ -3959,14 +3958,14 @@ body {
 }
 
 .integrations-inner {
-  width: min(1100px, 100%);
+  width: min(1180px, 100%);
   margin: 0 auto;
-  text-align: center;
+  text-align: left;
 }
 
 .integrations-head {
   max-width: 720px;
-  margin: 0 auto var(--sp-16);
+  margin: 0 0 var(--sp-16);
 }
 .integrations-head p {
   margin: var(--sp-4) 0 0;

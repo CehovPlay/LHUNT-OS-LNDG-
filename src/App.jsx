@@ -429,7 +429,6 @@ function PartnerStrip() {
             loading="lazy"
           />
         ))}
-        <span className="partner-logo-text">FMCSA verified</span>
       </div>
     </section>
   );
