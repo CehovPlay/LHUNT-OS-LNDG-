@@ -545,7 +545,7 @@ function GlobeSection() {
   return (
     <div id="network" className="globe-block">
       <div className="globe-copy">
-        <span className="section-index">02 / Network</span>
+        <span className="section-index">Network</span>
         <h3>Built for freight teams operating across markets.</h3>
         <p>
           Loadhunt connects carriers, brokers, dispatchers, drivers, and financial operations into one live operational layer.
@@ -617,7 +617,7 @@ const TRUST_METRICS = [
   {
     value: "1000+",
     label: "paid users",
-    detail: "Real customers using LoadHunter in production.",
+    detail: "Real carriers running on Loadhunt in production.",
   },
   {
     value: "1.5+ yrs",
@@ -640,7 +640,7 @@ const AUDIENCES = [
   {
     title: "Dispatchers",
     body: "Move faster across loadboards, emails, calls, maps, broker context, and automation.",
-    points: ["AutoEmail", "Telegram loads", "One-click actions"],
+    points: ["Multi-board search", "Broker context", "One-click booking"],
   },
   {
     title: "Brokers",
@@ -654,10 +654,10 @@ function TrustMetricsSection() {
     <section id="trust" className="trust-metrics-section">
       <div className="trust-inner">
         <div className="trust-heading">
-          <span className="section-index">03 / Trust</span>
+          <span className="section-index">Trust</span>
           <h2>Built on real usage, not a concept deck.</h2>
           <p>
-            LoadHunter already combines extension, dashboard, automation, and a roadmap toward a connected TMS and LoadBoard.
+            Real carriers already run loads, dispatch, and payments on Loadhunt — with a roadmap into the full operating system.
           </p>
         </div>
 
@@ -680,7 +680,7 @@ function WhoForSection() {
     <section id="who" className="who-section">
       <div className="who-inner">
         <div className="who-heading">
-          <span className="section-index">04 / Who it is for</span>
+          <span className="section-index">Who it's for</span>
           <h2>One ecosystem for the people moving freight.</h2>
         </div>
 
