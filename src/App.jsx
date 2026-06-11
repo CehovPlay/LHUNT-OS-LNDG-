@@ -105,8 +105,8 @@ function Header() {
             </div>
           </div>
 
-          <a className="navbar-link" href="#solutions">Solutions</a>
-          <a className="navbar-link" href="#articles">Articles</a>
+          <a className="navbar-link" href="#who">Solutions</a>
+          <a className="navbar-link" href="#waitlist">Articles</a>
           <a className="navbar-link" href="#contact">Company</a>
         </nav>
 
@@ -124,8 +124,8 @@ function Header() {
       <div className={`navbar-mobile ${mobileOpen ? "is-open" : ""}`}>
         <a href="#top" onClick={closeMobile}>Home</a>
         <a href="#products" onClick={closeMobile}>Products</a>
-        <a href="#solutions" onClick={closeMobile}>Solutions</a>
-        <a href="#articles" onClick={closeMobile}>Articles</a>
+        <a href="#who" onClick={closeMobile}>Solutions</a>
+        <a href="#waitlist" onClick={closeMobile}>Articles</a>
         <a href="#contact" onClick={closeMobile}>Company</a>
       </div>
     </header>

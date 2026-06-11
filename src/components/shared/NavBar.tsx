@@ -4,8 +4,8 @@ import styles from './NavBar.module.css';
 const LINKS: { label: string; href: string }[] = [
   { label: 'Home',      href: '/' },
   { label: 'Products',  href: '/#products' },
-  { label: 'Solutions', href: '/#solutions' },
-  { label: 'Articles',  href: '/#articles' },
+  { label: 'Solutions', href: '/#who' },
+  { label: 'Articles',  href: '/#waitlist' },
   { label: 'Company',   href: '/#contact' },
 ];
 
