@@ -89,7 +89,7 @@ main {
   border-color: rgba(255, 255, 255, 0.14);
   background: rgba(6, 6, 10, 0.74);
   padding: 8px 10px 8px 18px;
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(var(--blur-lg));
   box-shadow: 0 22px 70px rgba(0, 0, 0, 0.34);
 }
 
@@ -265,7 +265,7 @@ main {
   border: 1px solid rgba(255, 255, 255, 0.72);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(var(--blur-sm));
 }
 
 .cursor-dot::after {
@@ -299,7 +299,7 @@ main {
   letter-spacing: 0.22em;
   text-transform: uppercase;
   white-space: nowrap;
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(var(--blur-sm));
 }
 
 @keyframes cursorPulse {
@@ -430,7 +430,7 @@ main {
   border-right: 1px solid rgba(255, 255, 255, 0.14);
   padding: 44px 42px;
   background: rgba(6, 2, 13, 0.36);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(var(--blur-sm));
 }
 
 .problem-column:last-child {
@@ -934,7 +934,7 @@ main {
     grid-template-columns: 1fr auto;
     border-radius: 999px;
     background: rgba(6, 6, 10, 0.72);
-    backdrop-filter: blur(18px);
+    backdrop-filter: blur(var(--blur-lg));
     padding: 8px 10px 8px 16px;
   }
 
@@ -994,7 +994,7 @@ main {
     opacity: 0;
     transform: translateY(-8px);
     pointer-events: none;
-    backdrop-filter: blur(18px);
+    backdrop-filter: blur(var(--blur-lg));
     transition: opacity 180ms ease, transform 180ms ease;
   }
 
@@ -1193,6 +1193,10 @@ main {
   --weight-semibold: 600;  /* nav, eyebrows, sub-labels */
   --weight-bold:     700;  /* caps labels, status tags, CTAs */
   --weight-black:    800;  /* giant transition words */
+
+  /* Backdrop blur — two tiers only */
+  --blur-sm: 14px;  /* pills, small surfaces */
+  --blur-lg: 22px;  /* nav shell, mega panels, overlays */
 }
 
 body {
@@ -1284,7 +1288,7 @@ body {
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.026)),
     rgba(6, 2, 13, 0.42);
-  backdrop-filter: blur(14px);
+  backdrop-filter: blur(var(--blur-sm));
 }
 
 .problem-column:last-child {
@@ -1939,7 +1943,7 @@ body {
   background: rgba(9, 10, 14, 0.58);
   border-color: rgba(255, 255, 255, 0.13);
   box-shadow: 0 18px 52px rgba(0, 0, 0, 0.22);
-  backdrop-filter: blur(22px);
+  backdrop-filter: blur(var(--blur-lg));
 }
 
 .brand-mark {
@@ -2078,7 +2082,7 @@ body {
   background: rgba(14, 12, 13, 0.86);
   border: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: 0 24px 80px rgba(0, 0, 0, 0.34);
-  backdrop-filter: blur(24px);
+  backdrop-filter: blur(var(--blur-lg));
 }
 
 .brand-mark {
@@ -2802,7 +2806,7 @@ body {
     inset 0 -18px 26px rgba(0,0,0,0.28),
     0 2px 0 rgba(255,255,255,0.04),
     0 28px 90px rgba(0,0,0,0.42);
-  backdrop-filter: blur(22px);
+  backdrop-filter: blur(var(--blur-lg));
 }
 
 .dark-shadow-nav .brand-mark {
@@ -2955,7 +2959,7 @@ body {
   pointer-events: none;
   transform: translate(-50%, 12px) scale(0.985);
   transform-origin: top center;
-  backdrop-filter: blur(26px);
+  backdrop-filter: blur(var(--blur-lg));
   transition: opacity 190ms ease, visibility 190ms ease, transform 190ms ease;
 }
 
