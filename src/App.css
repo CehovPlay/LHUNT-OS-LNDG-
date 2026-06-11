@@ -351,15 +351,10 @@ main {
   border-radius: var(--radius-lg);
   background: linear-gradient(180deg, var(--paper-2) 0%, var(--paper) 100%);
   overflow: hidden;
-  cursor: grab;
   transform: perspective(1400px) rotateX(var(--tilt-rotate-x)) rotateY(var(--tilt-rotate-y)) translateZ(0);
   transform-style: preserve-3d;
-  transition: transform 180ms ease, border-color 180ms ease;
+  transition: transform 120ms ease, border-color 180ms ease;
   will-change: transform;
-}
-
-.product-slide:active {
-  cursor: grabbing;
 }
 
 .product-slide::after {
@@ -1065,6 +1060,7 @@ body {
 .geometry-stage {
   position: absolute;
   inset: 0;
+  z-index: 1;
   min-height: 1120px;
   overflow: hidden;
   border: 0;
@@ -1469,7 +1465,7 @@ body {
 
 .audience-card p {
   max-width: 380px;
-  margin: 0 0 28px;
+  margin: 0;
   color: rgba(255,255,255,0.58);
   font-size: var(--text-lg);
   line-height: var(--leading-normal);
@@ -2216,7 +2212,7 @@ body {
    ============================================================ */
 .geometry-manifesto {
   position: relative;
-  z-index: 5;
+  z-index: 10;
   max-width: 1180px;
 }
 
@@ -2551,21 +2547,30 @@ select.field-input {
 }
 
 /* ============================================================
-   Section sizing — content-height, comfortable but not full-screen
+   Section sizing — 1080px tall, content centered (Figma rhythm)
    ============================================================ */
 .story-section,
 .integrations-section,
 .trust-metrics-section,
 .who-section,
-.problem-section {
-  padding-top: var(--sp-24);
-  padding-bottom: var(--sp-24);
-}
-
+.problem-section,
 .geometry-physics-section {
-  min-height: auto;
+  min-height: 1080px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/* problem-inner only had max-width; give it a definite width so flex
+   align-items:center keeps it full-cap and centered (not shrunk/left). */
+.problem-inner {
+  width: min(var(--content-width), 100%);
 }
 .geometry-copy {
-  padding-top: var(--sp-16);
-  padding-bottom: var(--sp-16);
+  width: min(1180px, calc(100vw - 48px));
+}
+
+.geometry-copy {
+  padding-top: 0;
+  padding-bottom: 0;
 }

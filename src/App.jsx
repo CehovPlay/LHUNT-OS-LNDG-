@@ -744,6 +744,7 @@ function ProductSlide({ product, index, total }) {
     <article
       ref={cardRef}
       className="product-slide"
+      onMouseEnter={handleMove}
       onMouseMove={handleMove}
       onMouseLeave={handleLeave}
     >
