@@ -311,10 +311,14 @@ function HeroSequence() {
     }
 
     const lenis = new Lenis({
-      duration: 1.08,
+      // Smoother glide: longer settle + soft exponential ease-out.
+      // Dial feel here — duration up = silkier/floatier, down = snappier;
+      // wheelMultiplier down = gentler per notch.
+      duration: 1.3,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
-      wheelMultiplier: 0.92,
-      touchMultiplier: 1.15,
+      wheelMultiplier: 0.85,
+      touchMultiplier: 1.2,
     });
 
     lenis.on("scroll", ScrollTrigger.update);
@@ -815,8 +819,9 @@ function VideoStatementSection() {
     const video = videoRef.current;
     if (!section || !video) return undefined;
 
-    // Only decode/play the video while the section is on screen — a 30MB clip
-    // decoding off-screen contends with the main thread and janks scrolling.
+    // Only play while on screen so an off-screen clip doesn't decode and
+    // contend with the main thread. Wide rootMargin gives it a head start to
+    // buffer before it's fully in view, so arriving on the section is smooth.
     const io = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
@@ -825,7 +830,7 @@ function VideoStatementSection() {
           video.pause();
         }
       },
-      { rootMargin: "100px 0px" }
+      { rootMargin: "400px 0px" }
     );
 
     io.observe(section);
@@ -841,7 +846,7 @@ function VideoStatementSection() {
         muted
         loop
         playsInline
-        preload="none"
+        preload="metadata"
         disablePictureInPicture
       />
       <div className="video-statement-overlay" />
