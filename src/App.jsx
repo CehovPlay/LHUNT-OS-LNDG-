@@ -159,7 +159,6 @@ function HeroSequence() {
     const canvas = canvasRef.current;
     const context = canvas.getContext("2d", { alpha: false });
     const section = sectionRef.current;
-    const letters = textRef.current?.querySelectorAll("span") || [];
 
     let currentRenderedFrame = -1;
     let lenisTicker;
@@ -295,34 +294,6 @@ function HeroSequence() {
         0
       );
 
-      gsap.set(letters, {
-        yPercent: 120,
-        opacity: 0,
-        filter: "blur(10px)",
-      });
-
-      gsap.set(textRef.current, {
-        opacity: 1,
-        y: 0,
-        filter: "blur(0px)",
-      });
-
-      const package2Start = ranges[1].start / TOTAL_FRAMES;
-
-      timeline.to(
-        letters,
-        {
-          yPercent: 0,
-          opacity: 1,
-          filter: "blur(0px)",
-          stagger: 0.035,
-          ease: "power3.out",
-          duration: 0.16,
-        },
-        package2Start + 0.015
-      );
-
-
     }, section);
 
     // Start anchored at the top so pinned triggers measure from a stable
@@ -381,15 +352,22 @@ function HeroSequence() {
         <span className="cursor-label">Scroll to explore</span>
       </div>
 
-      <h2 ref={textRef} className="center-reveal-text" aria-label={CENTER_TEXT}>
-        {["New", "era", "of", "trucking"].map((word, index) => (
-          <span key={`${word}-${index}`}>{word}</span>
-        ))}
-        <span className="center-reveal-break" aria-hidden="true" />
-        {["starts", "here"].map((word, index) => (
-          <span key={`starts-line-${word}-${index}`}>{word}</span>
-        ))}
-      </h2>
+      <div ref={textRef} className="hero-content">
+        <h1 className="hero-title">
+          The unified operating system for modern carrier operations.
+        </h1>
+        <p className="hero-subtitle">
+          Loadhunt brings every part of running a trucking business into one
+          workspace. Find loads. Book them. Dispatch your drivers. Track
+          shipments. Invoice brokers. Get paid. All in one place — not five.
+        </p>
+        <div className="hero-cta-row">
+          <a className="btn btn-primary btn-xl" href="#waitlist">Join waitlist</a>
+          <a className="btn btn-secondary btn-xl" href="#products">
+            Explore product <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
     </section>
   );
 }
@@ -916,7 +894,7 @@ function RippleBackground() {
 
 function FinalCTASection() {
   return (
-    <section className="final-cta-section">
+    <section id="waitlist" className="final-cta-section">
       <div className="final-cta-inner">
         <span className="section-index">07 / Start</span>
         <h2>Book a demo or join early access.</h2>

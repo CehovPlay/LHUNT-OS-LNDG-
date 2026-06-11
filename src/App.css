@@ -3490,3 +3490,129 @@ body {
     border-bottom: 0;
   }
 }
+
+/* ============================================================
+   BUTTONS — Untitled UI
+   ============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid transparent;
+  border-radius: var(--r-md);
+  font-family: "Inter", sans-serif;
+  font-weight: var(--fw-semibold);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 160ms ease, border-color 160ms ease, color 160ms ease,
+    box-shadow 160ms ease, transform 160ms ease;
+}
+
+.btn:active {
+  transform: translateY(0.5px);
+}
+
+/* sizes */
+.btn-md  { padding: 8px 14px;  font-size: var(--text-sm2); line-height: var(--text-sm2-lh); }
+.btn-lg  { padding: 10px 16px; font-size: var(--text-md2); line-height: var(--text-md2-lh); }
+.btn-xl  { padding: 12px 20px; font-size: var(--text-md2); line-height: var(--text-md2-lh); }
+.btn-2xl { padding: 16px 28px; font-size: var(--text-lg2); line-height: var(--text-lg2-lh); }
+
+/* primary — filled brand */
+.btn-primary {
+  background: var(--brand-600);
+  border-color: var(--brand-600);
+  color: var(--text-on-brand);
+  box-shadow: var(--shadow-xs);
+}
+.btn-primary:hover {
+  background: var(--brand-700);
+  border-color: var(--brand-700);
+}
+
+/* secondary — light gray (Untitled UI default) */
+.btn-secondary {
+  background: var(--bg-primary);
+  border-color: var(--border-primary);
+  color: var(--text-secondary);
+  box-shadow: var(--shadow-xs);
+}
+.btn-secondary:hover {
+  background: var(--gray-50);
+  color: var(--text-primary);
+}
+
+/* tertiary — no border/bg */
+.btn-tertiary {
+  background: transparent;
+  border-color: transparent;
+  color: var(--text-tertiary);
+}
+.btn-tertiary:hover {
+  background: var(--gray-50);
+  color: var(--text-secondary);
+}
+
+/* ============================================================
+   HERO content (§2) — over the dark cinematic canvas
+   ============================================================ */
+.hero-content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  width: min(880px, calc(100vw - 48px));
+  text-align: center;
+  color: #fff;
+}
+
+.hero-title {
+  margin: 0;
+  font-size: clamp(38px, 5.4vw, 72px);
+  line-height: 1.06;
+  font-weight: var(--fw-semibold);
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+  color: #fff;
+}
+
+.hero-subtitle {
+  max-width: 660px;
+  margin: 22px auto 0;
+  font-size: clamp(17px, 1.4vw, 20px);
+  line-height: 1.5;
+  font-weight: var(--fw-regular);
+  color: rgba(255, 255, 255, 0.72);
+  text-wrap: pretty;
+}
+
+.hero-cta-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 34px;
+  flex-wrap: wrap;
+}
+
+/* secondary CTA reads on the dark hero (glass outline, not the light variant) */
+.hero-cta-row .btn-secondary {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.28);
+  color: #fff;
+  box-shadow: none;
+}
+.hero-cta-row .btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.16);
+  color: #fff;
+}
+
+@media (max-width: 600px) {
+  .hero-cta-row .btn {
+    width: 100%;
+  }
+}
