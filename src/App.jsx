@@ -1263,7 +1263,10 @@ function Footer() {
   return (
     <footer id="contact" className="site-footer-v2">
       <div className="footer-top">
-        <a className="footer-home-btn" href="#top">Back to home page</a>
+        <a className="navbar-brand footer-logo" href="#top" aria-label="huntOS home">
+          <img className="navbar-logo-img" src="/huntos-icon.svg" alt="" aria-hidden="true" />
+          <b>huntOS</b>
+        </a>
 
         <div className="footer-cols">
           <div className="footer-col">
@@ -1296,10 +1299,6 @@ function Footer() {
       </div>
 
       <div className="footer-bottom">
-        <a className="navbar-brand" href="#top" aria-label="huntOS home">
-          <img className="navbar-logo-img" src="/huntos-icon.svg" alt="" aria-hidden="true" />
-          <b>huntOS</b>
-        </a>
         <span className="footer-copy">© 2026 huntOS.</span>
       </div>
     </footer>
