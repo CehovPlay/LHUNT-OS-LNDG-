@@ -12,7 +12,6 @@ const SEQUENCES = [
   { folder: "/frames-4", count: 97 },
 ];
 
-const CENTER_TEXT = "New era of trucking starts here";
 const TOTAL_FRAMES = SEQUENCES.reduce((sum, sequence) => sum + sequence.count, 0);
 
 function buildFrameList() {
@@ -507,21 +506,6 @@ function ProblemSection() {
         <GlobeSection />
       </div>
     </section>
-  );
-}
-
-function ProblemColumn({ label, title, bullets, footer }) {
-  return (
-    <article className="problem-column">
-      <span>{label}</span>
-      <h3>{title}</h3>
-      <ul>
-        {bullets.map((item) => (
-          <li key={item}>{item}</li>
-        ))}
-      </ul>
-      <p>{footer}</p>
-    </article>
   );
 }
 
@@ -1042,16 +1026,6 @@ function GeometryPhysicsSection() {
         ))}
       </div>
     </section>
-  );
-}
-
-function RippleBackground() {
-  return (
-    <div className="ripple-background" aria-hidden="true">
-      {Array.from({ length: 9 }).map((_, index) => (
-        <span key={index} style={{ "--ripple-index": index }} />
-      ))}
-    </div>
   );
 }
 
